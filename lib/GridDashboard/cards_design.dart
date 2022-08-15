@@ -139,7 +139,7 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
               crossAxisCount: 2,
               padding: const EdgeInsets.all(2),
               children: [
-                makeDashboardItem("Clock", "emergency", 0),
+                makeDashboardItem("Clock", "emergency.png", 0),
                 makeDashboardItem("Festival", "assets/festival.png", 1),
                 makeDashboardItem("Food", "assets/food.png", 2),
                 makeDashboardItem("Location", "assets/map.png", 3),
