@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:granny_go/cards_design.dart';
+import 'GridDashboard/cards_design.dart';
 
 void main() {
   runApp(const MyApp());
