@@ -20,13 +20,13 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
                   begin: FractionalOffset(0.0, 0.0),
                   end: FractionalOffset(3.0, -1.0),
                   colors: [
-                    Color(0xFF84fcde),
+                    Color(0xfff0f3fc),
                     Color(0xFFffffff),
                   ],
                 ),
                 boxShadow: const [
                   BoxShadow(
-                    color: Colors.white,
+                    color: Colors.black,
                     blurRadius: 3,
                     offset: Offset(2, 2),
                   )
@@ -44,7 +44,7 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
                 ),
                 boxShadow: const [
                   BoxShadow(
-                    color: Colors.white,
+                    color: Colors.black,
                     blurRadius: 3,
                     offset: Offset(2, 2),
                   )
@@ -63,12 +63,6 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
             }
             if (index == 3) {
               //4.item
-            }
-            if (index == 4) {
-              //5.item
-            }
-            if (index == 5) {
-              //6.item
             }
           },
           child: Column(
@@ -90,7 +84,7 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
                   title,
                   style: const TextStyle(
                       fontSize: 19,
-                      color: Colors.white,
+                      color: Colors.black,
                       fontWeight: FontWeight.bold),
                 ),
               ),
@@ -105,7 +99,7 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 170, 193, 232),
+      backgroundColor: Color.fromARGB(255, 162, 175, 197),
       body: Column(
         children: [
           const SizedBox(height: 100),
@@ -124,7 +118,7 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
                     ),
                     SizedBox(height: 4),
                     Text(
-                      "Dashboard:",
+                      "",
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
@@ -141,10 +135,8 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
               children: [
                 makeDashboardItem("Games", "games.png", 0),
                 makeDashboardItem("Music", "music.png", 1),
-                makeDashboardItem("Tips", "tips.png", 2),
-                makeDashboardItem("Emergency", "emergency.png", 3),
-                makeDashboardItem("To", "assets/todo.png", 4),
-                makeDashboardItem("Settings", "assets/setting.png", 5),
+                makeDashboardItem("Tips",  "tips.png", 2),
+                makeDashboardItem("Fitness", "fitness.png", 3),
               ],
             ),
           ),
