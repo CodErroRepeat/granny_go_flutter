@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:granny_go/games/tictactoe/game_page.dart';
 
+
 class MakeDashboardItems extends StatefulWidget {
   const MakeDashboardItems({Key? key}) : super(key: key);
 
@@ -27,7 +28,7 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
                 ),
                 boxShadow: const [
                   BoxShadow(
-                    color: Colors.black,
+                    color: Colors.white,
                     blurRadius: 3,
                     offset: Offset(2, 2),
                   )
@@ -45,7 +46,7 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
                 ),
                 boxShadow: const [
                   BoxShadow(
-                    color: Colors.black,
+                    color: Colors.white,
                     blurRadius: 3,
                     offset: Offset(2, 2),
                   )
