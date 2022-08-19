@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:granny_go/games/tictactoe/game_page.dart';
+
 
 class MakeDashboardItems extends StatefulWidget {
   const MakeDashboardItems({Key? key}) : super(key: key);
@@ -53,22 +55,17 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
         child: InkWell(
           onTap: () {
             if (index == 0) {
-              //1.item
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => GamePage()));
             }
             if (index == 1) {
-              //2.item
+              ///samplepage
             }
             if (index == 2) {
-              //3.item
+              ///samplepage
             }
             if (index == 3) {
-              //4.item
-            }
-            if (index == 4) {
-              //5.item
-            }
-            if (index == 5) {
-              //6.item
+              ///samplepage
             }
           },
           child: Column(
@@ -90,7 +87,7 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
                   title,
                   style: const TextStyle(
                       fontSize: 19,
-                      color: Colors.white,
+                      color: Colors.black,
                       fontWeight: FontWeight.bold),
                 ),
               ),
@@ -143,8 +140,6 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
                 makeDashboardItem("Music", "music.png", 1),
                 makeDashboardItem("Tips", "tips.png", 2),
                 makeDashboardItem("Emergency", "emergency.png", 3),
-                makeDashboardItem("To", "assets/todo.png", 4),
-                makeDashboardItem("Settings", "assets/setting.png", 5),
               ],
             ),
           ),
