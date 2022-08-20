@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:granny_go/music/screens/main.widget.dart';
 import 'GridDashboard/cards_design.dart';
 
 void main() {
@@ -17,8 +18,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MakeDashboardItems(),
+      home: MainWidget(),
     );
   }
 }
+
 
