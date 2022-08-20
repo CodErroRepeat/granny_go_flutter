@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:granny_go/Recipe/explore.dart';
+import 'Recipe/explore.dart';
+import 'Recipe/shared.dart';
+import 'Recipe/constants.dart';
+import 'Recipe/data.dart';
 import 'GridDashboard/cards_design.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -12,8 +16,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'GRANNYGO',
+
+     return MaterialApp(
+      title: 'GRANNY GO',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -27,7 +32,8 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.purple,
       ),
-      home: const Explore(),
+
+        home: Explore(),
     );
   }
 }

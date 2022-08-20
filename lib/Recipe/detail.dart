@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:recipe/constants.dart';
-import 'package:recipe/shared.dart';
-import 'package:recipe/data.dart';
+import 'constants.dart';
+import 'shared.dart';
+import 'data.dart';
 
 class Detail extends StatelessWidget {
 
   final Recipe recipe;
 
-  Detail({@required this.recipe});
+  Detail({required this.recipe});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class Detail extends StatelessWidget {
       backgroundColor: Colors.teal[50],
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        brightness: Brightness.dark,
+
         elevation: 0,
         leading: GestureDetector(
           onTap: () {
@@ -83,7 +83,7 @@ class Detail extends StatelessWidget {
                         height: 16,
                       ),
 
-                      buildNutrition(recipe.carbo, "Carbo", "g"),
+                      buildNutrition(recipe.carbon, "Carbo", "g"),
 
                       SizedBox(
                         height: 16,
@@ -247,5 +247,7 @@ class Detail extends StatelessWidget {
       ),
     );
   }
+
+  buildTextSubTitleVariation3(String description, buildTextSubTitleVariation4, buildTextSubTitleVariation5, buildTextSubTitleVariation6) {}
 
 }

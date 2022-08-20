@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-buildTextTitleVariation1(String text){
+buildTextTitleVariation1(String text)
+{
+  var fontSize;
   return Padding(
     padding: EdgeInsets.only(bottom: 8),
     child: Text(
-      text,
-      style: GoogleFonts.breeSerif(
-        fontSize: 36,
-        fontWeight: FontWeight.w900,
-        color: Colors.red,
-      ),
+      "Detail"
     ),
   );
 }

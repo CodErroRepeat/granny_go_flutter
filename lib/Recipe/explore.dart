@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:recipe/constants.dart';
-import 'package:recipe/data.dart';
-import 'package:recipe/detail.dart';
-import 'package:recipe/shared.dart';
+import 'constants.dart';
+import 'data.dart';
+import 'detail.dart';
+import 'shared.dart';
 
 class Explore extends StatefulWidget {
   @override

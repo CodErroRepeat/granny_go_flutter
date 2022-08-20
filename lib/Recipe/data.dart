@@ -4,10 +4,10 @@ class Recipe {
   String description;
   String image;
   int calories;
-  int carbo;
+  int carbon;
   int protein;
 
-  Recipe(this.title, this.description, this.image, this.calories, this.carbo, this.protein);
+  Recipe(this.title, this.description, this.image, this.calories, this.carbon, this.protein);
 
 }
 
