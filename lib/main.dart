@@ -10,8 +10,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Granny Goo',
-      debugShowCheckedModeBanner: false,
+
+      title: 'Flutter Demo',
+
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 
 class Home extends StatefulWidget {
   @override
@@ -244,3 +246,4 @@ class _TileState extends State<Tile> {
     );
   }
 }
+
