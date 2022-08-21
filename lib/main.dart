@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'GridDashboard/cards_design.dart';
+import 'games/match/MatchGamePage.dart';
 
+<<<<<<< Updated upstream
 import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
 }
+=======
+Future<void> main() async => runApp(const MyApp());
+>>>>>>> Stashed changes
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -19,8 +24,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+<<<<<<< Updated upstream
       home:MakeDashboardItems(),
+=======
+      home: MatchGamePage(),
+>>>>>>> Stashed changes
     );
   }
 }
-
