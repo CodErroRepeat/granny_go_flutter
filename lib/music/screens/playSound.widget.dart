@@ -26,7 +26,7 @@ class _PlaySoundState extends State<PlaySound> {
   Widget build(BuildContext context) {
     // print(object)
     return Layout(
-      title:widget.sound.fileName,//title: I18n.of(context).translate(widget.sound.fileName [original file]
+      title:widget.sound.fileName,
       child: Container(
         padding: EdgeInsets.only(
           bottom: AppSizes.blockSize * 8,
@@ -38,31 +38,28 @@ class _PlaySoundState extends State<PlaySound> {
             _getSoundIcon(),
             _playPauseButtom(),
             Observer(
-              builder: (_) =>
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      _timerButtom(context, widget.store.soundTimeout),
-                      _isValidDuration(widget.store.soundTimeout)
-                          ? Text(
-                        "${widget.store.soundTimeout.inMinutes
-                            .toString()} min.",
-                        style: TextStyle(
-                          fontSize: AppSizes.blockSize * 8,
-                          color: MainColors.appBarTitle,
-                          fontFamily: "Roboto-Black",
-                        ),
-                      )
-                          : Container()
-                    ],
-                  ),
+              builder: (_) => Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  _timerButtom(context, widget.store.soundTimeout),
+                  _isValidDuration(widget.store.soundTimeout)
+                      ? Text(
+                    "${widget.store.soundTimeout.inMinutes.toString()} min.",
+                    style: TextStyle(
+                      fontSize: AppSizes.blockSize * 8,
+                      color: MainColors.appBarTitle,
+                      fontFamily: "Roboto-Black",
+                    ),
+                  )
+                      : Container()
+                ],
+              ),
             )
           ],
         ),
       ),
     );
   }
-
 
   bool _isValidDuration(Duration duration) {
     return duration != null && duration.inMinutes > 0;
@@ -140,3 +137,4 @@ class _PlaySoundState extends State<PlaySound> {
     );
   }
 }
+
