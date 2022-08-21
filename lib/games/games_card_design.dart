@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:granny_go/games/tictactoe/game_page.dart';
-import 'package:granny_go/Recipe/explore.dart';
-import 'package:granny_go/games/games_card_design.dart';
 
 
-class MakeDashboardItems extends StatefulWidget {
-  const MakeDashboardItems({Key? key}) : super(key: key);
+class MakeGameDashboardItems extends StatefulWidget {
+  const MakeGameDashboardItems({Key? key}) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
-  _MakeDashboardItemsState createState() => _MakeDashboardItemsState();
+  _MakeGameDashboardItemsState createState() => _MakeGameDashboardItemsState();
 }
 
 class DashboardItem {
@@ -49,7 +47,7 @@ Card DashboardView(DashboardItem item, VoidCallback action) {
           action();
         },
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           verticalDirection: VerticalDirection.down,
           children: [
@@ -79,11 +77,16 @@ Card DashboardView(DashboardItem item, VoidCallback action) {
   );
 }
 
-class _MakeDashboardItemsState extends State<MakeDashboardItems> {
+class _MakeGameDashboardItemsState extends State<MakeGameDashboardItems> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text(" GAMES CORNER"),
+      ),
       backgroundColor: Color.fromARGB(255, 170, 193, 232),
       body: Column(
         children: [
@@ -92,24 +95,6 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
             padding: const EdgeInsets.only(left: 16, right: 16),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const <Widget>[
-                    Text(
-                      "GRANNY GO",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(height: 4),
-                    Text(
-                      "Dashboard:",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-              ],
             ),
           ),
           const SizedBox(height: 20),
@@ -118,19 +103,25 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
               crossAxisCount: 2,
               padding: const EdgeInsets.all(2),
               children: [
-                DashboardView(DashboardItem("Games", "games.png"), () {
+                DashboardView(DashboardItem("TICTACTOE", "games_img/tic-tac-toe.png"), () {
                   Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => MakeGameDashboardItems()));
+                      context, MaterialPageRoute(builder: (context) => GamePage()));
+                  //game 1
                 }),
-                DashboardView(DashboardItem("Music", "music.png"), () {
-                  //Music page
+                DashboardView(DashboardItem("SPELL BEE", "games_img/spelling-bee.png"), () {
+                 //GAME2
                 }),
-                DashboardView(DashboardItem("RECIPES", "recipes.png"), () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => Explore()));
+                DashboardView(DashboardItem("CHESS", "games_img/chess.png"), () {
+                 //GAME3
                 }),
-                DashboardView(DashboardItem("TIPS", "tips.png"), () {
-                  // Emergency page
+                DashboardView(DashboardItem("SUDOKU", "games_img/pastime.png"), () {
+                  //GAME 1
+                }),
+                DashboardView(DashboardItem("FLIPCARD", "games_img/memory.png"), () {
+                  //GAME 1
+                }),
+                DashboardView(DashboardItem("PUZZLE", "games_img/puzzle.png"), () {
+                  //GAME 1
                 })
               ],
             ),

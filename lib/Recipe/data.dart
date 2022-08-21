@@ -13,10 +13,10 @@ class Recipe {
 
 List<Recipe> getRecipes(){
   return <Recipe>[
-    Recipe("Whole Wheat Bread Sandwich", "The Perfect Way to Start Your Day", "assets/images/sandwich.jpg", 250, 35,6),
-    Recipe("Stuffed Paratha", "Stuffed with Joy", "assets/images/stuffparatha.jpg", 250, 35, 6),
-    Recipe("Moongdal Kichidi", "The Best Breakfast Ever ", "assets/images/kichidi.jpg", 250, 35, 6),
-    Recipe("Oats Chilla", "Chill your Day", "assets/images/oatschilla.jpg", 250, 35, 6),
-    Recipe("Veg Momo", "You ask MOre and MOre", "assets/images/momo.jpg", 250, 35, 6),
+    Recipe("Whole Wheat Bread Sandwich", "The Perfect Way to Start Your Day", "Images/sandwich.jpg", 250, 35,6),
+    Recipe("Stuffed Paratha", "Stuffed with Joy", "images/stuffparatha.jpg", 250, 35, 6),
+    Recipe("Moongdal Kichidi", "The Best Breakfast Ever ", "images/kichidi.jpg", 250, 35, 6),
+    Recipe("Oats Chilla", "Chill your Day", "images/oatschilla.jpg", 250, 35, 6),
+    Recipe("Veg Momo", "You ask MOre and MOre", "images/momo.jpg", 250, 35, 6),
   ];
 }
