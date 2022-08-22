@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:granny_go/GridDashboard/cards_design.dart';
 
 class LoginView extends StatelessWidget {
   LoginView({Key? key}) : super(key: key);
@@ -114,6 +115,7 @@ void validateUser(BuildContext context, String email, String password) {
     showAlert(context, "Invalid Password");
   } else {
     showLoader(context);
+    Future.delayed(Duration(seconds: 5), () => Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(builder: (_) => MakeDashboardItems())));
   }
 }
 
@@ -126,7 +128,6 @@ void showLoader(BuildContext context) {
     context: context,
     builder: (_) => spinkit,
   );
-  Future.delayed(Duration(seconds: 5), () => Navigator.of(context, rootNavigator: true).pop());
 }
 void showAlert(BuildContext context, String message) {
   bool isAlertVisible = true;
