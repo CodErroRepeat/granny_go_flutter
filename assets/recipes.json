@@ -1,0 +1,30 @@
+{
+  "recipes": [
+    {
+      "title": "Whole Wheat Bread Sandwich",
+      "image": "Images/sandwich.jpg",
+      "description": "The Perfect Way to Start Your Day",
+      "calories": 250,
+      "carbon": 35,
+      "protein": 6,
+      "ingredients": [
+        "Wheat Bread",
+        "Vegetables:",
+        "Onion",
+        "Tomato",
+        "Boiled Potato",
+        "Carrot",
+        "Butter",
+        "Salt",
+        "Chilli Powder"
+      ],
+      "steps": [
+        "Heat the oil and saute all the vegetables.",
+        "After sauting, put some salt and chilli powder. Cook for 15 mins",
+        "Take two slices of bread and transfer veggies between the bread.",
+        "Smear the Butter and Toast on both sides.",
+        "Enjoy your Breakfast!!!"
+      ]
+    }
+  ]
+}
