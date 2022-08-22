@@ -5,7 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class LoginView extends StatelessWidget {
-const LoginView({Key? key}) : super(key: key);
+  LoginView({Key? key}) : super(key: key);
+
+
+TextEditingController emailController = TextEditingController();
+TextEditingController passwordController = TextEditingController();
 
 // This widget is the root of your application.
 @override
@@ -13,9 +17,14 @@ Widget build(BuildContext context) {
 
   return Scaffold(
     appBar: AppBar(
-      title: Text('Login Page'),
+      title: Text(
+          "Login Page",
+    ),
+
   ),
-    body: Column(
+    body:
+
+    Column(
       children: [
         Container(
           height: 150.0,
@@ -25,22 +34,34 @@ Widget build(BuildContext context) {
             borderRadius: BorderRadius.circular(200),
           ),
           child: Center(
-            child: Image.asset('asset/images/flutter-logo.png'),
+            child: Image.asset('Granny_go.png'),
+          ),
+        ),
+        Text("Granny Go",
+          style: TextStyle(
+              color: Colors.blue,
+              fontSize: 40,
+            fontWeight: FontWeight.bold
+          ),
+        ),
+        SizedBox(
+          height: 50,
+        ),
+        Padding(
+          padding: EdgeInsets.all(10),
+          child: TextField(
+            controller: emailController,
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'User Name',
+                  hintText: 'Enter valid mail id as abc@gmail.com'
+              )
           ),
         ),
         Padding(
           padding: EdgeInsets.all(10),
           child: TextField(
-            decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'User Name',
-                hintText: 'Enter valid mail id as abc@gmail.com'
-            ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(10),
-          child: TextField(
+            controller: passwordController,
             obscureText: true,
             decoration: InputDecoration(
                 border: OutlineInputBorder(),
@@ -65,7 +86,7 @@ Widget build(BuildContext context) {
               color: Colors.blue, borderRadius: BorderRadius.circular(20)),
           child: FlatButton(
             onPressed: () {
-              showAlert(context, "Invalid");
+              validateUser(context, emailController.text, passwordController.text);
               // Navigator.push(
               //     context, MaterialPageRoute(builder: (_) => ()));
             },
@@ -81,23 +102,51 @@ Widget build(BuildContext context) {
         Text('New User? Create Account')
       ],
     ),
+
   );
 }
-void showAlert(BuildContext context, String message) {
-  bool isAlertVisible = true;
-  CupertinoAlertDialog dialog = CupertinoAlertDialog(
-    title: Text("Error!"),
-    content: Text("Invalid Credentials"),
-  );
-  Visibility newDialog = Visibility(child: dialog, visible: isAlertVisible,);
+
+void validateUser(BuildContext context, String email, String password) {
+
+  if (!email.isValidEmail()) {
+    showAlert(context, "Invalid Email");
+  } else if (password.isEmpty) {
+    showAlert(context, "Invalid Password");
+  } else {
+    showLoader(context);
+  }
+}
+
+void showLoader(BuildContext context) {
   const spinkit = SpinKitPouringHourGlassRefined(
     color: Colors.white,
     size: 50.0,
   );
   showDialog(
-      context: context,
-      builder: (_) => spinkit,
-      barrierDismissible: true,
+    context: context,
+    builder: (_) => spinkit,
   );
+  Future.delayed(Duration(seconds: 5), () => Navigator.of(context, rootNavigator: true).pop());
 }
+void showAlert(BuildContext context, String message) {
+  bool isAlertVisible = true;
+  CupertinoAlertDialog dialog = CupertinoAlertDialog(
+    title: Text("Error!"),
+    content: Text(message),
+  );
+  showDialog(
+    context: context,
+    builder: (_) => dialog,
+  );
+
+  // Future.delayed(Duration(seconds: 5), () => Navigator.of(context, rootNavigator: true).pop());
+}
+}
+
+extension EmailValidator on String {
+  bool isValidEmail() {
+    return RegExp(
+        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+        .hasMatch(this);
+  }
 }
