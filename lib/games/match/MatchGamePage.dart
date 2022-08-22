@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MatchGamePage extends StatefulWidget {
   @override
@@ -8,8 +9,8 @@ class MatchGamePage extends StatefulWidget {
 }
 
 class _MatchGamePageState extends State<MatchGamePage> {
-  List<ItemModel> items;
-  List<ItemModel> items2;
+  List<ItemModel> items = [];
+  List<ItemModel> items2 = [];
 
   int score = 0;
   bool gameOver = false;
@@ -23,14 +24,8 @@ class _MatchGamePageState extends State<MatchGamePage> {
   initGame() {
     gameOver = false;
     score = 0;
-    items = [
-      ItemModel(icon: FontAwesomeIcons.coffee, name: "Coffee", value: "Coffee"),
-      ItemModel(icon: FontAwesomeIcons.dog, name: "dog", value: "dog"),
-      ItemModel(icon: FontAwesomeIcons.cat, name: "Cat", value: "Cat"),
-      ItemModel(
-          icon: FontAwesomeIcons.birthdayCake, name: "Cake", value: "Cake"),
-      ItemModel(icon: FontAwesomeIcons.bus, name: "bus", value: "bus"),
-    ];
+    itemsForMemoryGame.shuffle();
+    items = itemsForMemoryGame.take(5).toList();
     items2 = List<ItemModel>.from(items);
     items.shuffle();
     items2.shuffle();
@@ -167,7 +162,22 @@ class ItemModel {
   final String name;
   final String value;
   final IconData icon;
-  bool accepting;
+  bool accepting = false;
 
-  ItemModel(this.name, this.value, this.icon, this.accepting = false};
+  ItemModel({ required this.name, required this.value, required this.icon, this.accepting = false});
 }
+
+List<ItemModel> itemsForMemoryGame = [
+  ItemModel(icon: FontAwesomeIcons.coffee, name: "Coffee", value: "Coffee", ),
+  ItemModel(icon: FontAwesomeIcons.dog, name: "Dog", value: "Dog"),
+  ItemModel(icon: FontAwesomeIcons.cat, name: "Cat", value: "Cat"),
+  ItemModel(
+      icon: FontAwesomeIcons.birthdayCake, name: "Cake", value: "Cake"),
+  ItemModel(icon: FontAwesomeIcons.bus, name: "Bus", value: "Bus"),
+  ItemModel(name: "Boat", value: "Boat", icon: FontAwesomeIcons.sailboat),
+  ItemModel(name: "Bed", value: "Bed", icon: FontAwesomeIcons.bed),
+  ItemModel(name: "Car", value: "Car", icon: FontAwesomeIcons.car),
+  ItemModel(name: "Dog", value: "Dog", icon: FontAwesomeIcons.dog),
+  ItemModel(name: "Umbrella", value: "Umbrella", icon: FontAwesomeIcons.umbrella),
+  ItemModel(name: "Moon", value: "Moon", icon: FontAwesomeIcons.moon)
+];
