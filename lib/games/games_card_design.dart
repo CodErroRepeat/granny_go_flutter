@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:granny_go/games/tictactoe/game_page.dart';
+import 'spot/spot.dart';
 
 
 class MakeGameDashboardItems extends StatefulWidget {
@@ -121,6 +122,9 @@ class _MakeGameDashboardItemsState extends State<MakeGameDashboardItems> {
                   //GAME 1
                 }),
                 DashboardView(DashboardItem("PUZZLE", "games_img/puzzle.png"), () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => SpotGame())
+                  );
                   //GAME 1
                 })
               ],

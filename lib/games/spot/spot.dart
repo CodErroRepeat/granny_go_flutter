@@ -12,16 +12,16 @@ class NewApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return MaterialApp(title: 'My App', home: WebViewExample());
+    return MaterialApp(title: 'My App', home: SpotGame());
   }
 }
 
-class WebViewExample extends StatefulWidget {
+class SpotGame extends StatefulWidget {
   @override
-  WebViewExampleState createState() => WebViewExampleState();
+  SpotGameState createState() => SpotGameState();
 }
 
-class WebViewExampleState extends State<WebViewExample> {
+class SpotGameState extends State<SpotGame> {
   @override
   void initState() {
     super.initState();
