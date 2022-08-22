@@ -25,7 +25,7 @@ class _ExploreState extends State<Explore> {
   }
 
   Future<void> readJson() async {
-    final String response = await rootBundle.loadString('recipes.json');
+    final String response = await rootBundle.loadString('jsonData/recipes.json');
     final List<dynamic>data = jsonDecode(response)["recipes"];
     
     setState(() {
