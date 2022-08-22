@@ -2,8 +2,13 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'memory_game/data/data.dart';
 import 'memory_game/models/TitleModel.dart';
-
+import 'package:flutter/services.dart';
+import 'package:flutter/foundation.dart';
+import 'suduko/board_style.dart';
+import 'suduko/splash_screen_page.dart';
+import 'suduko/styles.dart';
 void main() => runApp(MyApp());
+
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -16,7 +21,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:Home(),
+
+      home:const SplashScreenPage(),
     );
   }
 }
@@ -243,6 +249,7 @@ class _TileState extends State<Tile> {
           child: Image.asset("assets/correct.png"),
         ),
       ),
+
     );
   }
 }

@@ -15,26 +15,15 @@ class _ExploreState extends State<Explore> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[50],
+    return
+      Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        brightness: Brightness.light,
-        elevation: 0,
-        leading: Icon(
-          Icons.sort,
-          color: Colors.black,
+          backgroundColor: Colors.lightBlueAccent,
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: Text("FOOD RECIPIES "),
         ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 16),
-            child: Icon(
-              Icons.search,
-              color: Colors.black,
-            ),
-          ),
-        ],
-      ),
+
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Column(
@@ -43,11 +32,9 @@ class _ExploreState extends State<Explore> {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  
                   buildTextTitleVariation1('Granny Corner'),
-
                   buildTextSubTitleVariation1('Healthy and Nutritious Food Recipes'),
 
                   SizedBox(
@@ -58,15 +45,15 @@ class _ExploreState extends State<Explore> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       
-                      option('Vegetable', 'assets/icons/salad.png', 0),
+                      option('DELICIOUS', 'assets/icons/salad.png', 0),
                       SizedBox(
                         width: 8,
                       ),
-                      option('Rice', 'assets/icons/rice.png', 1),
+                      option('SIMPLE', 'icons/quickfood.png', 1),
                       SizedBox(
                         width: 8,
                       ),
-                      option('Fruit', 'assets/icons/fruit.png', 2),
+                      option('HEALTHY', 'icons/healthy.png', 2),
 
                     ],
                   ),
@@ -120,7 +107,7 @@ class _ExploreState extends State<Explore> {
           ],
         ),
       ),
-    );
+      );
   }
 
   Widget option(String text, String image, int index){
