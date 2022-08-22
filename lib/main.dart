@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'GridDashboard/cards_design.dart';
+import 'Login/login.dart';
 
 import 'package:flutter/services.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:MakeDashboardItems(),
+      home: LoginView(),
     );
   }
 }

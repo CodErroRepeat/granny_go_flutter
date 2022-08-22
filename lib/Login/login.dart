@@ -1,6 +1,8 @@
 
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class LoginView extends StatelessWidget {
 const LoginView({Key? key}) : super(key: key);
@@ -63,6 +65,7 @@ Widget build(BuildContext context) {
               color: Colors.blue, borderRadius: BorderRadius.circular(20)),
           child: FlatButton(
             onPressed: () {
+              showAlert(context, "Invalid");
               // Navigator.push(
               //     context, MaterialPageRoute(builder: (_) => ()));
             },
@@ -78,6 +81,23 @@ Widget build(BuildContext context) {
         Text('New User? Create Account')
       ],
     ),
+  );
+}
+void showAlert(BuildContext context, String message) {
+  bool isAlertVisible = true;
+  CupertinoAlertDialog dialog = CupertinoAlertDialog(
+    title: Text("Error!"),
+    content: Text("Invalid Credentials"),
+  );
+  Visibility newDialog = Visibility(child: dialog, visible: isAlertVisible,);
+  const spinkit = SpinKitPouringHourGlassRefined(
+    color: Colors.white,
+    size: 50.0,
+  );
+  showDialog(
+      context: context,
+      builder: (_) => spinkit,
+      barrierDismissible: true,
   );
 }
 }
