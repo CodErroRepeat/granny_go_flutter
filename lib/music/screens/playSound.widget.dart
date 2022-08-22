@@ -19,15 +19,16 @@ class PlaySound extends StatefulWidget {
 
 class _PlaySoundState extends State<PlaySound> {
   Duration _duration = Duration(hours: 0, minutes: 0);
-
+  final _key = GlobalKey<_PlaySoundState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
   _PlaySoundState();
 
   @override
   Widget build(BuildContext context) {
     // print(object)
     return Layout(
-      title:widget.sound.fileName,
-      child: Container(
+      _key,
+      Container(
         padding: EdgeInsets.only(
           bottom: AppSizes.blockSize * 8,
           top: AppSizes.blockSize * 8,
@@ -58,6 +59,8 @@ class _PlaySoundState extends State<PlaySound> {
           ],
         ),
       ),
+      widget.sound.fileName,
+      context
     );
   }
 

@@ -10,7 +10,7 @@ class Layout extends StatelessWidget {
   final BuildContext context;
 
   const Layout(
-      Key key, @required this.child, @required this.title, this.context)
+      Key key, @required Widget this.child, @required String this.title, BuildContext this.context)
       : super(key: key);
 
   @override

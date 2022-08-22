@@ -12,16 +12,16 @@ class MainStore = _MainStore with _$MainStore;
 abstract class _MainStore with Store {
   @observable
   Duration soundTimeout = new Duration();
-  Timer soundTimeoutTimer;
+  Timer? soundTimeoutTimer;
 
   @observable
-  Sound playingSound;
+  Sound? playingSound;
 
   AudioCache _playerCache = AudioCache(prefix: "assets/audio/");
 
-  AudioPlayer _audioPlayer;
+  AudioPlayer? _audioPlayer;
 
-  CountdownTimer countdownTimer;
+  CountdownTimer? countdownTimer;
 
   _MainStore() {
     _playerCache
@@ -34,7 +34,7 @@ abstract class _MainStore with Store {
     this.soundTimeout = soundTimeout;
     print("Updating timer " + this.soundTimeout.inMinutes.toString());
     countdownTimer = CountdownTimer(soundTimeout, Duration(minutes: 1));
-    countdownTimer.listen(_setSoundTimeout, onDone: _timerDone);
+    countdownTimer?.listen(_setSoundTimeout, onDone: _timerDone);
   }
 
   void _setSoundTimeout(CountdownTimer countdownTimer) {
@@ -46,18 +46,19 @@ abstract class _MainStore with Store {
   void _timerDone() {
     print("timer done");
     this.soundTimeout = new Duration();
-    _stop(playingSound);
+    _stop();
   }
 
   @action
-  Future<void> setPlayingSound(Sound playingSound) async {
+  Future<void> setPlayingSound(Sound? playingSound) async {
+    final playedSound = playingSound;
     if (playingSound != null && playingSound.name.isNotEmpty) {
       _play(playingSound);
     } else {
-      _stop(playingSound);
+      _stop();
     }
 
-    this.playingSound = playingSound;
+    this.playingSound = playedSound;
   }
 
   bool isPlaying() {
@@ -66,16 +67,16 @@ abstract class _MainStore with Store {
 
   Future<void> _play(Sound sound) async {
     if (this._audioPlayer != null) {
-      await this._audioPlayer.stop();
+      await this._audioPlayer?.stop();
     }
 
     this._audioPlayer = await _playerCache.loop(sound.getAudioPath());
   }
 
-  Future<void> _stop(Sound sound) async {
+  Future<void> _stop() async {
     if (this._audioPlayer != null) {
       print("sound stoped");
-      await this._audioPlayer.stop();
+      await this._audioPlayer?.stop();
       this._audioPlayer = null;
       this.playingSound = null;
     }

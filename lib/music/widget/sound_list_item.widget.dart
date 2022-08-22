@@ -13,7 +13,8 @@ class SoundListItem extends StatelessWidget {
   final Sound sound;
   final MainStore store;
   
-  SoundListItem(@required this.sound, @required this.store);
+  SoundListItem(@required this.store, @required this.sound);
+
   @override
   Widget build(BuildContext context) {
     final soundIcon = Container(
@@ -38,7 +39,7 @@ class SoundListItem extends StatelessWidget {
         height: AppSizes.blockSize * 5,
         margin: EdgeInsets.only(right: AppSizes.blockSize * 3),
         child: Observer(builder: (_) {
-          if (isPlaying(store.playingSound)) {
+          if (isPlaying(sound)) {
             return Lottie.asset('assets/animations/sound2.json');
           } else {
             return Container();

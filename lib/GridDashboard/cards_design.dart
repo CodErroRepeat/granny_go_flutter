@@ -124,8 +124,8 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
                     context, MaterialPageRoute(builder: (context) => MakeGameDashboardItems()));
                 }),
                 DashboardView(DashboardItem("Music", "music.png"), () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => Explore()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => MusicWidget()));
+                  //Music page
                 }),
                 DashboardView(DashboardItem("RECIPES", "recipes.png"), () {
                   Navigator.push(
