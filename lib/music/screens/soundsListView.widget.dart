@@ -19,10 +19,10 @@ class SoundsListView extends StatelessWidget {
         ...SoundAssetList.sounds
             .map(
               (sound) => SoundListItem(
-                store: store,
-                sound: Sound(
-                  name: "sound",
-                  fileName: sound,
+                store,
+                Sound(
+                  "sound",
+                  sound,
                 ),
               ),
             )

@@ -32,11 +32,11 @@ mixin _$MainStore on _MainStore, Store {
   Sound get playingSound {
     _$playingSoundAtom.context.enforceReadPolicy(_$playingSoundAtom);
     _$playingSoundAtom.reportObserved();
-    return super.playingSound;
+    return super.playingSound!;
   }
 
   @override
-  set playingSound(Sound value) {
+  set playingSound(Sound? value) {
     _$playingSoundAtom.context.conditionallyRunInAction(() {
       super.playingSound = value;
       _$playingSoundAtom.reportChanged();
@@ -46,7 +46,7 @@ mixin _$MainStore on _MainStore, Store {
   final _$setPlayingSoundAsyncAction = AsyncAction('setPlayingSound');
 
   @override
-  Future<void> setPlayingSound(Sound playingSound) {
+  Future<void> setPlayingSound(Sound? playingSound) {
     return _$setPlayingSoundAsyncAction
         .run(() => super.setPlayingSound(playingSound));
   }
