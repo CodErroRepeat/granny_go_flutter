@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:granny_go/games/match/MatchGamePage.dart';
 import 'package:granny_go/games/tictactoe/game_page.dart';
 import 'spot/spot.dart';
 
@@ -120,6 +121,8 @@ class _MakeGameDashboardItemsState extends State<MakeGameDashboardItems> {
                 }),
                 DashboardView(DashboardItem("FLIPCARD", "games_img/memory.png"), () {
                   //GAME 1
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => MatchGamePage()));
                 }),
                 DashboardView(DashboardItem("PUZZLE", "games_img/puzzle.png"), () {
                   Navigator.push(
