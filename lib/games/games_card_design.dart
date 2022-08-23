@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:granny_go/games/match/MatchGamePage.dart';
 import 'package:granny_go/games/tictactoe/game_page.dart';
+import 'package:granny_go/main.dart';
 
 
 class MakeGameDashboardItems extends StatefulWidget {
@@ -110,7 +111,7 @@ class _MakeGameDashboardItemsState extends State<MakeGameDashboardItems> {
                   //game 1
                 }),
                 DashboardView(DashboardItem("SPELL BEE", "games_img/spelling-bee.png"), () {
-                 //GAME2
+                  //Game 2
                 }),
                 DashboardView(DashboardItem("CHESS", "games_img/chess.png"), () {
                  //GAME3
