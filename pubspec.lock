@@ -127,6 +127,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  chess:
+    dependency: transitive
+    description:
+      name: chess
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.7.0"
+  chess_vectors_flutter:
+    dependency: transitive
+    description:
+      name: chess_vectors_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.16"
   clock:
     dependency: transitive
     description:
@@ -209,6 +223,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_chess_board:
+    dependency: "direct main"
+    description:
+      name: flutter_chess_board
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -614,6 +635,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  tuple:
+    dependency: transitive
+    description:
+      name: tuple
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   typed_data:
     dependency: transitive
     description:

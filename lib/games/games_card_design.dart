@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:granny_go/games/tictactoe/game_page.dart';
 
-
 class MakeGameDashboardItems extends StatefulWidget {
   const MakeGameDashboardItems({Key? key}) : super(key: key);
 
@@ -78,7 +77,6 @@ Card DashboardView(DashboardItem item, VoidCallback action) {
 }
 
 class _MakeGameDashboardItemsState extends State<MakeGameDashboardItems> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,24 +101,32 @@ class _MakeGameDashboardItemsState extends State<MakeGameDashboardItems> {
               crossAxisCount: 2,
               padding: const EdgeInsets.all(2),
               children: [
-                DashboardView(DashboardItem("TICTACTOE", "games_img/tic-tac-toe.png"), () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => GamePage()));
+                DashboardView(
+                    DashboardItem("TICTACTOE", "games_img/tic-tac-toe.png"),
+                    () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => GamePage()));
                   //game 1
                 }),
-                DashboardView(DashboardItem("SPELL BEE", "games_img/spelling-bee.png"), () {
-                 //GAME2
+                DashboardView(
+                    DashboardItem("SPELL BEE", "games_img/spelling-bee.png"),
+                    () {
+                  //GAME2
                 }),
-                DashboardView(DashboardItem("CHESS", "games_img/chess.png"), () {
-                 //GAME3
+                DashboardView(DashboardItem("CHESS", "games_img/chess.png"),
+                    () {
+                  //GAME3
                 }),
-                DashboardView(DashboardItem("SUDOKU", "games_img/pastime.png"), () {
+                DashboardView(DashboardItem("SUDOKU", "games_img/pastime.png"),
+                    () {
                   //GAME 1
                 }),
-                DashboardView(DashboardItem("FLIPCARD", "games_img/memory.png"), () {
+                DashboardView(DashboardItem("FLIPCARD", "games_img/memory.png"),
+                    () {
                   //GAME 1
                 }),
-                DashboardView(DashboardItem("PUZZLE", "games_img/puzzle.png"), () {
+                DashboardView(DashboardItem("PUZZLE", "games_img/puzzle.png"),
+                    () {
                   //GAME 1
                 })
               ],
