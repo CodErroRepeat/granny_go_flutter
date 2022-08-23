@@ -110,9 +110,9 @@ Widget build(BuildContext context) {
 void validateUser(BuildContext context, String email, String password) {
 
   if (!email.isValidEmail()) {
-    showAlert(context, "Invalid Email");
+    showAlert(context: context, title: "Invalid Email!", message: "Please enter a valid email");
   } else if (password.isEmpty) {
-    showAlert(context, "Invalid Password");
+    showAlert(context: context, title: "Invalid Password!", message: "Please enter a valid password");
   } else {
     showLoader(context);
     Future.delayed(Duration(seconds: 5), () => Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(builder: (_) => MakeDashboardItems())));
@@ -129,11 +129,12 @@ void showLoader(BuildContext context) {
     builder: (_) => spinkit,
   );
 }
-void showAlert(BuildContext context, String message) {
+void showAlert({required BuildContext context, required String title, String message = ""}) {
   bool isAlertVisible = true;
   CupertinoAlertDialog dialog = CupertinoAlertDialog(
-    title: Text("Error!"),
+    title: Text(title),
     content: Text(message),
+    actions: [Text("Okay")],
   );
   showDialog(
     context: context,
