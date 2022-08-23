@@ -120,11 +120,10 @@ class _MakeGameDashboardItemsState extends State<MakeGameDashboardItems> {
                 }),
                 DashboardView(DashboardItem("FLIPCARD", "games_img/memory.png"), () {
                   //GAME 1
+                }),
+                DashboardView(DashboardItem("CONNECT", "games_img/puzzle.png"), () {
                   Navigator.push(
                       context, MaterialPageRoute(builder: (context) => MatchGamePage()));
-                }),
-                DashboardView(DashboardItem("PUZZLE", "games_img/puzzle.png"), () {
-                  //GAME 1
                 })
               ],
             ),
