@@ -36,7 +36,7 @@ Widget build(BuildContext context) {
             borderRadius: BorderRadius.circular(200),
           ),
           child: Center(
-            child: Image.asset('Granny_go.png'),
+            child: Image.asset('assets/about/Granny_go.png'),
           ),
         ),
         Text("Granny Go",
@@ -135,7 +135,6 @@ void showAlert({required BuildContext context, required String title, String mes
   CupertinoAlertDialog dialog = CupertinoAlertDialog(
     title: Text(title),
     content: Text(message),
-    actions: [Text("Okay")],
   );
   showDialog(
     context: context,
