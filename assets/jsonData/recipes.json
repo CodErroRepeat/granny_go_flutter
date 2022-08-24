@@ -25,6 +25,74 @@
         "Smear the Butter and Toast on both sides.",
         "Enjoy your Breakfast!!!"
       ]
-    }
-  ]
+    },
+    {
+      "title": "Bengal Gram Salad",
+      "image": "Images/salad.jpg",
+      "description": "The Best Salad Ever",
+      "calories": 33,
+      "carbon": 5,
+      "protein": 2,
+      "ingredients": [
+        "Raw Whole Black Gram",
+        "Cucumber",
+        "Tomato",
+        "Salt",
+        "Red Chilli Powder",
+        "Lemon Juice",
+        "Coriander Leaves"
+
+      ],
+      "steps": [
+        "Soak Chana Overnight",
+        "Boil soaked chana in salted water",
+        "In a bowl, add boiled chana, chopped tomatoes, chopped cucumber, chilli powder, salt, chopped corianders",
+        "Add Lemon juice to it.",
+        "Enjoy your Salad!!!"
+      ]
+    },
+    {
+      "title": "Almond Kheer",
+      "image": "Images/kheer.jpg",
+      "description": "Let's Boost Your Day",
+      "calories": 78,
+      "carbon": 17,
+      "protein": 0,
+      "ingredients": [
+        "Fresh Milk",
+        "Sugar",
+        "Almonds",
+        "Cardomons",
+        "Saffron"
+      ],
+      "steps": [
+        "Soak the Almonds nearly 4-5 Hours.",
+        "Peel the skin of almonds",
+        "Blender almonds,cardomons,saffron together as a paste.",
+        "Boil the milk and add the paste to it.",
+        "Enjoy your Kheer!!!"
+      ]
+    },
+        {
+          "title": "Carrot Juice",
+          "image": "Images/juice.jpg",
+          "description": "The Healthy Drink",
+          "calories": 38,
+          "carbon": 17,
+          "protein": 2,
+          "ingredients": [
+            "Carrot",
+            "Water",
+            "Sugar"
+
+          ],
+          "steps": [
+            "Rinse the carrots very well in water and drain them naturally.",
+            "Chop carrots into small cubes",
+            "Blend the carrot well with mixing of required water.",
+            "Add sugar if you want.",
+            "Enjoy your Juice!!!"
+          ]
+        }
+      ]
 }

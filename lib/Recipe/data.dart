@@ -28,9 +28,10 @@ class Recipe {
 
 List<Recipe> getRecipes(){
   return <Recipe>[
-    Recipe("Stuffed Paratha", "Stuffed with Joy", "images/stuffparatha.jpg", 250, 35, 6),
-    Recipe("Moongdal Kichidi", "The Best Breakfast Ever ", "images/kichidi.jpg", 250, 35, 6),
-    Recipe("Oats Chilla", "Chill your Day", "images/oatschilla.jpg", 250, 35, 6),
-    Recipe("Veg Momo", "You ask MOre and MOre", "images/momo.jpg", 250, 35, 6),
+    Recipe("Whole Wheat Sandwich", "The Perfect way to Start your Day", "images/sandwich.jpg", 250, 35, 6),
+    Recipe("Turmeric Milk", "The Golden Milk", "images/milk.jpg", 250, 35, 6),
+    Recipe("Bengal Gram Salad", "The Best Salad Ever ", "images/salad.jpg", 250, 35, 6),
+    Recipe("Almond Kheer", "Let's Boost your Day", "images/kheer.jpg", 250, 35, 6),
+    Recipe("Carrot Juice", "The Healthy Drink", "images/juice.jpg", 250, 35, 6),
   ];
 }
