@@ -1,8 +1,5 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 class MatchGamePage extends StatefulWidget {
   @override
   _MatchGamePageState createState() => _MatchGamePageState();
@@ -35,13 +32,13 @@ class _MatchGamePageState extends State<MatchGamePage> {
   Widget build(BuildContext context) {
     if (items.length == 0) gameOver = true;
     return Scaffold(
-      backgroundColor: Colors.amber,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
         title: Text('Matching Game'),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(10.0),
         child: Column(
           children: <Widget>[
             Text.rich(TextSpan(children: [
