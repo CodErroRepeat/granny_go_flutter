@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:granny_go/tips/tipsdatamodel.dart';
 import 'package:granny_go/tips/tipsdetails.dart';
 import 'GridDashboard/cards_design.dart';
+import 'games/chess/chessGamePage.dart';
 import 'Login/login.dart';
 import 'package:flutter/services.dart';
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginView(),
+      home: const chessGamePage(),
     );
   }
 }
