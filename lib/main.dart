@@ -2,11 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'memory_game/data/data.dart';
 import 'memory_game/models/TitleModel.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/foundation.dart';
-import 'suduko/board_style.dart';
-import 'suduko/splash_screen_page.dart';
-import 'suduko/styles.dart';
+
+
 void main() => runApp(MyApp());
 
 
@@ -22,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
 
-      home:const SplashScreenPage(),
+      home: Home(),
     );
   }
 }
