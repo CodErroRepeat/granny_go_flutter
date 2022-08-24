@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:granny_go/games/match/MatchGamePage.dart';
 import 'package:granny_go/games/tictactoe/game_page.dart';
-
+import 'package:granny_go/main.dart';
 
 class MakeGameDashboardItems extends StatefulWidget {
   const MakeGameDashboardItems({Key? key}) : super(key: key);
@@ -53,8 +55,8 @@ Card DashboardView(DashboardItem item, VoidCallback action) {
           children: [
             const SizedBox(height: 50),
             Center(
-              child: Image.asset(
-                item.img,
+              child: Image.asset(item.img,
+                bundle: rootBundle,
                 height: 50,
                 width: 50,
               ),
@@ -78,7 +80,6 @@ Card DashboardView(DashboardItem item, VoidCallback action) {
 }
 
 class _MakeGameDashboardItemsState extends State<MakeGameDashboardItems> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,24 +104,28 @@ class _MakeGameDashboardItemsState extends State<MakeGameDashboardItems> {
               crossAxisCount: 2,
               padding: const EdgeInsets.all(2),
               children: [
-                DashboardView(DashboardItem("TICTACTOE", "games_img/tic-tac-toe.png"), () {
+                DashboardView(DashboardItem("TICTACTOE", "assets/about/tic-tac-toe.png"), () {
                   Navigator.push(
                       context, MaterialPageRoute(builder: (context) => GamePage()));
                   //game 1
                 }),
-                DashboardView(DashboardItem("SPELL BEE", "games_img/spelling-bee.png"), () {
+                DashboardView(DashboardItem("SPELL BEE", "assets/about/spelling-bee.png"), () {
                  //GAME2
                 }),
-                DashboardView(DashboardItem("CHESS", "games_img/chess.png"), () {
+                DashboardView(DashboardItem("CHESS", "assets/about/chess.png"), () {
                  //GAME3
                 }),
-                DashboardView(DashboardItem("SUDOKU", "games_img/pastime.png"), () {
+                DashboardView(DashboardItem("SUDOKU", "assets/about/pastime.png"), () {
                   //GAME 1
                 }),
-                DashboardView(DashboardItem("FLIPCARD", "games_img/memory.png"), () {
+                DashboardView(DashboardItem("FLIPCARD", "assets/about/memory.png"), () {
                   //GAME 1
                 }),
-                DashboardView(DashboardItem("PUZZLE", "games_img/puzzle.png"), () {
+                DashboardView(DashboardItem("CONNECT", "games_img/puzzle.png"), () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => MatchGamePage()));
+                }),
+                DashboardView(DashboardItem("PUZZLE", "assets/about/puzzle.png"), () {
                   //GAME 1
                 })
               ],
