@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:granny_go/games/tictactoe/game_page.dart';
 import 'package:granny_go/Recipe/explore.dart';
 import 'package:granny_go/games/games_card_design.dart';
+
+import 'package:granny_go/music/screens/main.widget.dart';
 import 'package:granny_go/tips/tipsmain.dart';
 class MakeDashboardItems extends StatefulWidget {
   const MakeDashboardItems({Key? key}) : super(key: key);
@@ -122,6 +124,7 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
                     context, MaterialPageRoute(builder: (context) => MakeGameDashboardItems()));
                 }),
                 DashboardView(DashboardItem("Music", "music.png"), () {
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => MusicWidget()));
                   //Music page
                 }),
                 DashboardView(DashboardItem("RECIPES", "recipes.png"), () {

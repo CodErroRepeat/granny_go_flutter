@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:granny_go/GridDashboard/cards_design.dart';
+import 'package:granny_go/home_quiz/quiz_screen.dart';
 
 class LoginView extends StatelessWidget {
   LoginView({Key? key}) : super(key: key);
@@ -115,7 +116,7 @@ void validateUser(BuildContext context, String email, String password) {
     showAlert(context: context, title: "Invalid Password!", message: "Please enter a valid password");
   } else {
     showLoader(context);
-    Future.delayed(Duration(seconds: 5), () => Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(builder: (_) => MakeDashboardItems())));
+    Future.delayed(Duration(seconds: 5), () => Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(builder: (_) => QuizScreen())));
   }
 }
 

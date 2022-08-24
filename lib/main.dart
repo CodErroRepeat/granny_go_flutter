@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:granny_go/home_quiz/quiz_screen.dart';
 import 'package:granny_go/tips/tipsdatamodel.dart';
 import 'package:granny_go/tips/tipsdetails.dart';
 import 'GridDashboard/cards_design.dart';
