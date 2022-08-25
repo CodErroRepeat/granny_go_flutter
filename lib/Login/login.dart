@@ -16,20 +16,23 @@ class WelcomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-        appBar: AppBar(
-        title: Text(
-        "Login Page",
-    ),
+        // appBar: AppBar(
+    //     title: Text(
+    //     "Login Page",
+    // ),
 
-    ),
+    // ),
     body:
 
     Column(
     children: [
+      SizedBox(
+        height: 100,
+      ),
     Container(
     height: 150.0,
     width: 350,
-    padding: EdgeInsets.only(top: 10),
+    padding: EdgeInsets.only(top: 40),
     decoration: BoxDecoration(
     borderRadius: BorderRadius.circular(200),
     ),
@@ -44,8 +47,15 @@ class WelcomeView extends StatelessWidget {
     fontWeight: FontWeight.bold
     ),
     ),
+      Text("Don't be Pressure, You are treasure!",
+        style: TextStyle(
+            color: Colors.purple,
+            fontSize: 15,
+            fontWeight: FontWeight.normal
+        ),
+      ),
     SizedBox(
-    height: 50,
+    height: 100,
     ),
       Container(
         height: 50,
@@ -60,7 +70,7 @@ class WelcomeView extends StatelessWidget {
             //     context, MaterialPageRoute(builder: (_) => ()));
           },
           child: Text(
-            'Welcome',
+            'Get Started',
             style: TextStyle(color: Colors.white, fontSize: 25),
           ),
         ),
@@ -115,6 +125,13 @@ Widget build(BuildContext context) {
               color: Colors.blue,
               fontSize: 40,
             fontWeight: FontWeight.bold
+          ),
+        ),
+        Text("Don't be Pressure, You are treasure!",
+          style: TextStyle(
+              color: Colors.blue,
+              fontSize: 20,
+              fontWeight: FontWeight.normal
           ),
         ),
         SizedBox(
