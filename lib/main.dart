@@ -6,6 +6,7 @@ import 'GridDashboard/cards_design.dart';
 import 'games/chess/chessGamePage.dart';
 import 'Login/login.dart';
 import 'package:flutter/services.dart';
+import 'GridDashboard/cards_design.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const chessGamePage(),
+      home: const MakeDashboardItems(),
     );
   }
 }
