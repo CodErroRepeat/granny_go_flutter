@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:granny_go/games/match/MatchGamePage.dart';
 import 'package:granny_go/games/tictactoe/game_page.dart';
-
+import 'package:granny_go/main.dart';
 
 class MakeGameDashboardItems extends StatefulWidget {
   const MakeGameDashboardItems({Key? key}) : super(key: key);
@@ -80,7 +80,6 @@ Card DashboardView(DashboardItem item, VoidCallback action) {
 }
 
 class _MakeGameDashboardItemsState extends State<MakeGameDashboardItems> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,6 +120,8 @@ class _MakeGameDashboardItemsState extends State<MakeGameDashboardItems> {
                 }),
                 DashboardView(DashboardItem("FLIPCARD", "assets/about/memory.png"), () {
                   //GAME 1
+                }),
+                DashboardView(DashboardItem("CONNECT", "games_img/puzzle.png"), () {
                   Navigator.push(
                       context, MaterialPageRoute(builder: (context) => MatchGamePage()));
                 }),
