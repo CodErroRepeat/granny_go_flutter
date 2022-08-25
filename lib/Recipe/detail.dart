@@ -119,40 +119,10 @@ class Detail extends StatelessWidget {
               padding: EdgeInsets.only(left: 16, right: 16, bottom: 80),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  
-                  buildTextTitleVariation2('Ingredients', false),
-
-                  buildTextSubTitleVariation1("Wheat Bread"),
-                  buildTextSubTitleVariation1("Vegetables:"),
-                  buildTextSubTitleVariation1("Onion"),
-                  buildTextSubTitleVariation1("Tomato"),
-                  buildTextSubTitleVariation1("Boiled Potato"),
-                  buildTextSubTitleVariation1("Carrot"),
-                  buildTextSubTitleVariation1("Butter"),
-                  buildTextSubTitleVariation1("Salt"),
-                  buildTextSubTitleVariation1("Chilli Powder"),
-
-                  SizedBox(height: 16,),
-
-                  buildTextTitleVariation2('Recipe Preparation', false),
-
-                  buildTextSubTitleVariation1("STEP 1"),
-                  buildTextSubTitleVariation1("Heat the oil and saute all the vegetables."),
-
-                  buildTextSubTitleVariation1("STEP 2"),
-                  buildTextSubTitleVariation1("After sauting, put some salt and chilli powder. Cook for 15 mins"),
-
-                  buildTextSubTitleVariation1("STEP 3"),
-                  buildTextSubTitleVariation1("Take two slices of bread and transfer veggies between the bread."),
-
-                  buildTextSubTitleVariation1("STEP 4"),
-                  buildTextSubTitleVariation1("Smear the Butter and Toast on both sides."),
-
-                  buildTextSubTitleVariation1("STEP 5"),
-                  buildTextSubTitleVariation1("Enjoy your Breakfast!!!"),
-
-                ],
+                children:
+                    buildIngredients()
+                    + [SizedBox(height: 16,)]
+                    + buildSteps(),
               ),
             ),
 
@@ -178,6 +148,25 @@ class Detail extends StatelessWidget {
         )
       ),
     );
+  }
+  
+  List<Widget> buildIngredients() {
+    List<Widget> widgets = [];
+    widgets.add(buildTextTitleVariation2('Ingredients', false));
+    recipe.ingredients.forEach((ingredient) { 
+      widgets.add(buildTextSubTitleVariation1(ingredient));
+    });
+    return widgets;
+  }
+
+  List<Widget> buildSteps() {
+    List<Widget> widgets = [];
+    widgets.add(buildTextTitleVariation2('Recipe Preparation', false));
+    for(int i=1; i<=recipe.steps.length; i++) {
+      widgets.add(buildTextSubTitleVariation2("Step $i"));
+      widgets.add(buildTextSubTitleVariation1(recipe.steps[i-1]));
+    }
+    return widgets;
   }
 
   Widget buildNutrition(int value, String title, String subTitle){

@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'constants.dart';
 import 'data.dart';
 import 'detail.dart';
@@ -12,6 +15,23 @@ class Explore extends StatefulWidget {
 class _ExploreState extends State<Explore> {
 
   List<bool> optionSelected = [true, false, false];
+  List<Recipe> _recipes = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    readJson();
+  }
+
+  Future<void> readJson() async {
+    final String response = await rootBundle.loadString('jsonData/recipes.json');
+    final List<dynamic>data = jsonDecode(response)["recipes"];
+    
+    setState(() {
+      _recipes = data.map((e) => Recipe.fromJson(e)).toList();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -159,9 +179,12 @@ class _ExploreState extends State<Explore> {
 
   List<Widget> buildRecipes(){
     List<Widget> list = [];
-    for (var i = 0; i < getRecipes().length; i++) {
-      list.add(buildRecipe(getRecipes()[i], i));
-    }
+    _recipes.forEach((recipe) { 
+      list.add(buildRecipe(recipe, _recipes.indexOf(recipe)));
+    });
+    // for (var i = 0; i < getRecipes().length; i++) {
+    //   list.add(buildRecipe(getRecipes()[i], i));
+    // }
     return list;
   }
 
