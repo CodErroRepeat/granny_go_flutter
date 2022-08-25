@@ -85,7 +85,7 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 170, 193, 232),
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           const SizedBox(height: 100),
@@ -100,7 +100,8 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
                     Text(
                       "GRANNY GO",
                       style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
                     ),
                     SizedBox(height: 4),
                     Text(
@@ -113,7 +114,7 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
               ],
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 50),
           Expanded(
             child: GridView.count(
               crossAxisCount: 2,

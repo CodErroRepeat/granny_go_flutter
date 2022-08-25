@@ -28,10 +28,10 @@ class Recipe {
 
 List<Recipe> getRecipes(){
   return <Recipe>[
-    Recipe("Whole Wheat Sandwich", "The Perfect way to Start your Day", "images/sandwich.jpg", 250, 35, 6),
-    Recipe("Turmeric Milk", "The Golden Milk", "images/milk.jpg", 250, 35, 6),
-    Recipe("Bengal Gram Salad", "The Best Salad Ever ", "images/salad.jpg", 250, 35, 6),
-    Recipe("Almond Kheer", "Let's Boost your Day", "images/kheer.jpg", 250, 35, 6),
-    Recipe("Carrot Juice", "The Healthy Drink", "images/juice.jpg", 250, 35, 6),
+    Recipe("Whole Wheat Sandwich", "The Perfect way to Start your Day", "assets/Images/sandwich.jpg", 250, 35, 6),
+    Recipe("Turmeric Milk", "The Golden Milk", "assets/Images/milk.jpg", 250, 35, 6),
+    Recipe("Bengal Gram Salad", "The Best Salad Ever ", "assets/Images/salad.jpg", 250, 35, 6),
+    Recipe("Almond Kheer", "Let's Boost your Day", "assets/Images/kheer.jpg", 250, 35, 6),
+    Recipe("Carrot Juice", "The Healthy Drink", "assets/Images/juice.jpg", 250, 35, 6),
   ];
 }

@@ -6,6 +6,77 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:granny_go/GridDashboard/cards_design.dart';
 import 'package:granny_go/home_quiz/quiz_screen.dart';
 
+
+class WelcomeView extends StatelessWidget {
+
+  WelcomeView({Key? key}) : super(key: key);
+
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+        appBar: AppBar(
+        title: Text(
+        "Login Page",
+    ),
+
+    ),
+    body:
+
+    Column(
+    children: [
+    Container(
+    height: 150.0,
+    width: 350,
+    padding: EdgeInsets.only(top: 10),
+    decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(200),
+    ),
+    child: Center(
+    child: Image.asset('assets/about/Granny_go.png'),
+    ),
+    ),
+    Text("Granny Go",
+    style: TextStyle(
+    color: Colors.blue,
+    fontSize: 40,
+    fontWeight: FontWeight.bold
+    ),
+    ),
+    SizedBox(
+    height: 50,
+    ),
+      Container(
+        height: 50,
+        width: 250,
+        decoration: BoxDecoration(
+            color: Colors.blue, borderRadius: BorderRadius.circular(20)),
+        child: FlatButton(
+          onPressed: () {
+            // validateUser(context, emailController.text, passwordController.text);
+            // Navigator.push(
+            moveToQuizPage(context);
+            //     context, MaterialPageRoute(builder: (_) => ()));
+          },
+          child: Text(
+            'Welcome',
+            style: TextStyle(color: Colors.white, fontSize: 25),
+          ),
+        ),
+      ),
+      SizedBox(
+        height: 100,
+      ),
+      ]
+  ),
+    );
+  }
+
+  void moveToQuizPage(BuildContext context) {
+    Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(builder: (_) => QuizScreen()));
+  }
+}
 class LoginView extends StatelessWidget {
   LoginView({Key? key}) : super(key: key);
 
@@ -118,6 +189,10 @@ void validateUser(BuildContext context, String email, String password) {
     showLoader(context);
     Future.delayed(Duration(seconds: 5), () => Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(builder: (_) => QuizScreen())));
   }
+}
+
+void moveToQuizPage(BuildContext context) {
+  Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(builder: (_) => QuizScreen()));
 }
 
 void showLoader(BuildContext context) {

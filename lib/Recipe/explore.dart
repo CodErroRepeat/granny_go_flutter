@@ -25,7 +25,7 @@ class _ExploreState extends State<Explore> {
   }
 
   Future<void> readJson() async {
-    final String response = await rootBundle.loadString('jsonData/recipes.json');
+    final String response = await rootBundle.loadString('assets/jsonData/recipes.json');
     final List<dynamic>data = jsonDecode(response)["recipes"];
     
     setState(() {
@@ -41,7 +41,7 @@ class _ExploreState extends State<Explore> {
           backgroundColor: Colors.lightBlueAccent,
           // Here we take the value from the MyHomePage object that was created by
           // the App.build method, and use it to set our appbar title.
-          title: Text("FOOD RECIPIES "),
+          title: Text("Granny Corner"),
         ),
 
       body: SingleChildScrollView(
@@ -54,37 +54,38 @@ class _ExploreState extends State<Explore> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  buildTextTitleVariation1('Granny Corner'),
-                  buildTextSubTitleVariation1('Healthy and Nutritious Food Recipes'),
-
                   SizedBox(
                     height: 32,
                   ),
+                  // buildTextTitleVariation1('Granny Corner'),
+                  buildTextTitleVariation2('Healthy and Nutritious Food Recipes', true),
 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      
-                      option('DELICIOUS', 'assets/icons/salad.png', 0),
-                      SizedBox(
-                        width: 8,
-                      ),
-                      option('SIMPLE', 'icons/quickfood.png', 1),
-                      SizedBox(
-                        width: 8,
-                      ),
-                      option('HEALTHY', 'icons/healthy.png', 2),
 
-                    ],
-                  ),
+                  //
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //
+                  //     option('DELICIOUS', 'assets/icons/salad.png', 0),
+                  //     SizedBox(
+                  //       width: 8,
+                  //     ),
+                  //     option('SIMPLE', 'icons/quickfood.png', 1),
+                  //     SizedBox(
+                  //       width: 8,
+                  //     ),
+                  //     option('HEALTHY', 'icons/healthy.png', 2),
+                  //
+                  //   ],
+                  // ),
 
                 ],
               ),
             ),
 
-            SizedBox(
-              height: 24,
-            ),
+            // SizedBox(
+            //   height: 24,
+            // ),
 
             Container(
               height: 350,
