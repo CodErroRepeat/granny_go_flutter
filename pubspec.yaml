@@ -80,6 +80,7 @@ flutter:
     - assets/icons/
     - assets/about/
     - assets/animations/
+    - assets/ironing/
 
   fonts:
       - family: Roboto-Black
