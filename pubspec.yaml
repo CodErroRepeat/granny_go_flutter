@@ -84,6 +84,9 @@ flutter:
     - assets/jsonData/
     - assets/ironing/
     - assets/brushing/
-    - -assets/breadtoast/
+    - assets/breadtoast/
+    - assets/shoping/
+    - assets/washplates/
+    - assets/washclothes/
 #    - assets/about/games
 

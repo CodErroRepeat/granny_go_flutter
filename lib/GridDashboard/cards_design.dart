@@ -227,35 +227,35 @@ class ChoresEngine {
         image: "assets/ironing/shirts.png"
     ),
     DailyChore(name: "Brushing Teeth", tiles: [
-      TileItem("Pick up brush", ""assets/"),
-      TileItem("Pick up toothpaste", ""),
-      TileItem("Apply toothpaste on brush", ""),
-      TileItem("Clean teeth with brush", ""),
-    ], image: ""),
+      TileItem("Pick up brush", "assets/brushing/breadtoast/toothbrush.png"),
+      TileItem("Pick up toothpaste", "assets/brushing/breadtoast/toothpaste.png"),
+      TileItem("Apply toothpaste on brush", "assets/brushing/breadtoast/applythird.png"),
+      TileItem("Clean teeth with brush", "assets/brushing/breadtoast/brushingperson.png"),
+    ], image: "assets/brushing/breadtoast/brushingperson.png"),
     DailyChore(name: "Toasting Bread", tiles: [
-      TileItem("Get some bread", ""),
-      TileItem("Configure the toaster", ""),
-      TileItem("Place bread on toaster", ""),
-      TileItem("Turn on Toaster", ""),
-    ], image: ""),
+      TileItem("Get some bread", "assets/breadtoast/white-bread.png"),
+      TileItem("Configure the toaster", "assets/breadtoast/toaster.png"),
+      TileItem("Place bread on toaster", "assets/breadtoast/nob.png"),
+      TileItem("Turn on Toaster", "assets/breadtoast/yummy.png"),
+    ], image: "assets/breadtoast/yummy.png"),
     DailyChore(name: "Washing Plates", tiles: [
-      TileItem("Take dirty plates", ""),
-      TileItem("Take liquid soap", ""),
-      TileItem("Apply water", ""),
-      TileItem("Clean plates", ""),
-    ], image: ""),
+      TileItem("Take dirty plates", "assets/washplates/dirtyplate.png"),
+      TileItem("Take liquid soap", "assets/washplates/liquid-soap.png"),
+      TileItem("Apply water", "assets/washplates/water-tap.png"),
+      TileItem("Clean plates", "assets/washplates/cleanplate.png"),
+    ], image: "assets/washplates/cleanplate.png"),
     DailyChore(name: "Washing Clothes", tiles: [
-      TileItem("Collect dirty clothes", ""),
-      TileItem("Pick up detergent", ""),
-      TileItem("Take brush", ""),
-      TileItem("Clean clothes with brush", ""),
-    ], image: ""),
+      TileItem("Collect dirty clothes", "assets/washclothes/dirty-shirt.png"),
+      TileItem("Pick up detergent", "assets/washclothes/liquid-soap.png"),
+      TileItem("Take brush", "assets/washclothes/brush.png"),
+      TileItem("Clean clothes with brush", "assets/washclothes/cleancloth.png"),
+    ], image: "assets/washclothes/cleancloth.png"),
     DailyChore(name: "Shopping", tiles: [
-      TileItem("Book a taxi", ""),
-      TileItem("Take money", ""),
-      TileItem("Make note of things to buy", ""),
-      TileItem("Head to the market", ""),
-    ], image: "")
+      TileItem("Book a taxi", "assets/shoping/taxi.png"),
+      TileItem("Take money", "assets/shoping/money.png"),
+      TileItem("Make note of things to buy", "assets/shoping/verified.png"),
+      TileItem("Head to the market", "assets/shoping/market.png"),
+    ], image: "assets/shoping/market.png")
   ];
 
   static DailyChore firstChore() {
