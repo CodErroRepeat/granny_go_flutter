@@ -14,27 +14,27 @@ class Detail extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.teal[50],
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-
-        elevation: 0,
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-          ),
-        ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 16),
-            child: Icon(
-              Icons.favorite_border,
-              color: Colors.black,
-            ),
-          ),
-        ],
+        // backgroundColor: Colors.transparent,
+title: Text(recipe.title),
+        // elevation: 0,
+        // leading: GestureDetector(
+        //   onTap: () {
+        //     Navigator.pop(context);
+        //   },
+        //   child: Icon(
+        //     Icons.arrow_back_ios,
+        //     color: Colors.black,
+        //   ),
+        // ),
+        // actions: [
+        //   Padding(
+        //     padding: EdgeInsets.only(right: 16),
+        //     child: Icon(
+        //       Icons.favorite_border,
+        //       color: Colors.black,
+        //     ),
+        //   ),
+        // ],
       ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -42,13 +42,16 @@ class Detail extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
 
+            SizedBox(
+              height: 30,
+            ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   
-                  buildTextTitleVariation1(recipe.title),
+                  // buildTextTitleVariation1(recipe.title),
 
                   buildTextSubTitleVariation1(recipe.description),
 
@@ -95,16 +98,17 @@ class Detail extends StatelessWidget {
                   ),
 
                   Positioned(
-                    right: -80,
+                    right: -60,
+                    top: 60,
                     child: Hero(
                       tag: recipe.image,
                       child: Container(
-                        height: 310,
-                        width: 310,
+                        height: 250,
+                        width: 250,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage(recipe.image),
-                            fit: BoxFit.fitHeight,
+                            fit: BoxFit.scaleDown,
                           ),
                         ),
                       ),
@@ -119,40 +123,10 @@ class Detail extends StatelessWidget {
               padding: EdgeInsets.only(left: 16, right: 16, bottom: 80),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  
-                  buildTextTitleVariation2('Ingredients', false),
-
-                  buildTextSubTitleVariation1("Wheat Bread"),
-                  buildTextSubTitleVariation1("Vegetables:"),
-                  buildTextSubTitleVariation1("Onion"),
-                  buildTextSubTitleVariation1("Tomato"),
-                  buildTextSubTitleVariation1("Boiled Potato"),
-                  buildTextSubTitleVariation1("Carrot"),
-                  buildTextSubTitleVariation1("Butter"),
-                  buildTextSubTitleVariation1("Salt"),
-                  buildTextSubTitleVariation1("Chilli Powder"),
-
-                  SizedBox(height: 16,),
-
-                  buildTextTitleVariation2('Recipe Preparation', false),
-
-                  buildTextSubTitleVariation1("STEP 1"),
-                  buildTextSubTitleVariation1("Heat the oil and saute all the vegetables."),
-
-                  buildTextSubTitleVariation1("STEP 2"),
-                  buildTextSubTitleVariation1("After sauting, put some salt and chilli powder. Cook for 15 mins"),
-
-                  buildTextSubTitleVariation1("STEP 3"),
-                  buildTextSubTitleVariation1("Take two slices of bread and transfer veggies between the bread."),
-
-                  buildTextSubTitleVariation1("STEP 4"),
-                  buildTextSubTitleVariation1("Smear the Butter and Toast on both sides."),
-
-                  buildTextSubTitleVariation1("STEP 5"),
-                  buildTextSubTitleVariation1("Enjoy your Breakfast!!!"),
-
-                ],
+                children:
+                    buildIngredients()
+                    + [SizedBox(height: 16,)]
+                    + buildSteps(),
               ),
             ),
 
@@ -161,7 +135,9 @@ class Detail extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {}, 
+        onPressed: () {
+
+        },
         backgroundColor: kPrimaryColor,
         icon: Icon(
           Icons.play_circle_fill,
@@ -178,6 +154,25 @@ class Detail extends StatelessWidget {
         )
       ),
     );
+  }
+  
+  List<Widget> buildIngredients() {
+    List<Widget> widgets = [];
+    widgets.add(buildTextTitleVariation2('Ingredients', false));
+    recipe.ingredients.forEach((ingredient) { 
+      widgets.add(buildTextSubTitleVariation1(ingredient));
+    });
+    return widgets;
+  }
+
+  List<Widget> buildSteps() {
+    List<Widget> widgets = [];
+    widgets.add(buildTextTitleVariation2('Recipe Preparation', false));
+    for(int i=1; i<=recipe.steps.length; i++) {
+      widgets.add(buildTextSubTitleVariation2("Step $i"));
+      widgets.add(buildTextSubTitleVariation1(recipe.steps[i-1]));
+    }
+    return widgets;
   }
 
   Widget buildNutrition(int value, String title, String subTitle){

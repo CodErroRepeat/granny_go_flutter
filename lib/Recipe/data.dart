@@ -1,22 +1,37 @@
 class Recipe {
 
-  String title;
-  String description;
-  String image;
-  int calories;
-  int carbon;
-  int protein;
+  String title = "";
+  String description = "";
+  String image = "";
+  int calories = 0;
+  int carbon = 0;
+  int protein = 0;
+  List<String> ingredients = [];
+  List<String> steps = [];
 
-  Recipe(this.title, this.description, this.image, this.calories, this.carbon, this.protein);
+  Recipe(this.title, this.description, this.image, this.calories, this.carbon, this.protein);//, this.steps);
 
+  Recipe.fromJson(Map<String,dynamic> json)
+  {
+    title = json['title'];
+    description =json['description'];
+    image = json['image'];
+    calories = json['calories'];
+    carbon = json['carbon'];
+    protein = json['protein'];
+    ingredients = (json['ingredients'] as List<dynamic>).map((e) => e.toString()).toList();
+    steps = (json['steps'] as List<dynamic>).map((e) => e.toString()).toList();
+
+  }
 }
+
 
 List<Recipe> getRecipes(){
   return <Recipe>[
-    Recipe("Whole Wheat Bread Sandwich", "The Perfect Way to Start Your Day", "Images/sandwich.jpg", 250, 35,6),
-    Recipe("Stuffed Paratha", "Stuffed with Joy", "images/stuffparatha.jpg", 250, 35, 6),
-    Recipe("Moongdal Kichidi", "The Best Breakfast Ever ", "images/kichidi.jpg", 250, 35, 6),
-    Recipe("Oats Chilla", "Chill your Day", "images/oatschilla.jpg", 250, 35, 6),
-    Recipe("Veg Momo", "You ask MOre and MOre", "images/momo.jpg", 250, 35, 6),
+    Recipe("Whole Wheat Sandwich", "The Perfect way to Start your Day", "assets/Images/sandwich.jpg", 250, 35, 6),
+    Recipe("Turmeric Milk", "The Golden Milk", "assets/Images/milk.jpg", 250, 35, 6),
+    Recipe("Bengal Gram Salad", "The Best Salad Ever ", "assets/Images/salad.jpg", 250, 35, 6),
+    Recipe("Almond Kheer", "Let's Boost your Day", "assets/Images/kheer.jpg", 250, 35, 6),
+    Recipe("Carrot Juice", "The Healthy Drink", "assets/Images/juice.jpg", 250, 35, 6),
   ];
 }

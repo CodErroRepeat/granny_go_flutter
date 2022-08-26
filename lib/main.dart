@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:granny_go/games/chooseGame.dart';
+import 'package:granny_go/home_quiz/quiz_screen.dart';
 import 'package:granny_go/tips/tipsdatamodel.dart';
 import 'package:granny_go/tips/tipsdetails.dart';
 import 'GridDashboard/cards_design.dart';
+import 'games/chess/chessGamePage.dart';
 import 'Login/login.dart';
 import 'package:flutter/services.dart';
+import 'GridDashboard/cards_design.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginView(),
+      home: MakeDashboardItems(),
     );
   }
 }
