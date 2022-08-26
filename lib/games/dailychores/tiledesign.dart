@@ -127,9 +127,6 @@ class _TileDesignItemsState extends State<TileDesignItems> {
       body:
       Column(
         children: [
-          // const SizedBox(height: 100),
-          // if (gameCompleted) Text("Game Over"),
-          // if (gameCompleted) SizedBox(height: 150,),
           Padding(
             padding: const EdgeInsets.only(left: 5, right: 5),
             child: Column(
