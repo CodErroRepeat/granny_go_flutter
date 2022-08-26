@@ -42,10 +42,9 @@ class TileItem {
 }
 
 // ignore: non_constant_identifier_names
-Card TileView(TileItem item, VoidCallback action) {
+Card TileView(TileItem item, VoidCallback action, double width, double height) {
 
   return Card(
-
     elevation: 8,
     margin: const EdgeInsets.all(8),
     child: Container(
@@ -83,18 +82,18 @@ Card TileView(TileItem item, VoidCallback action) {
                 data:item,
                 childWhenDragging: Image.asset(
                 item.img,
-                  height:80,
-                  width: 80,
+                  height: height,
+                  width: width,
                 ),
                 feedback: Image.asset(
                   item.img,
-                  height: 80,
-                  width: 80,
+                  height: height,
+                  width: width,
                 ),
                 child: Image.asset(
                   item.img,
-                  height: 80,
-                  width: 80,
+                  height: height,
+                  width: width,
                 ),
               )
             ),
@@ -124,6 +123,7 @@ class _TileDesignItemsState extends State<TileDesignItems> {
   bool gameCompleted = false;
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -154,7 +154,7 @@ class _TileDesignItemsState extends State<TileDesignItems> {
     padding: const EdgeInsets.only(left: 20, right: 20, top: 50, bottom: 50),
     child:
           Row(
-              children: [4,3,2,1].map((index) {
+              children: List.generate(tiles.length, (index) => index + 1).map((index) {
                 return DragTarget<TileItem>(
                   onAccept: (receivedItem) {
                     if (_refListItem.contains(receivedItem)) {
@@ -194,16 +194,16 @@ class _TileDesignItemsState extends State<TileDesignItems> {
                       Card(
                         elevation: 8,
                         shadowColor: Colors.green,
-                        margin: EdgeInsets.all(5),
+                        margin: EdgeInsets.all(12),
                         shape: CircleBorder(side: BorderSide(width: 1, color: Colors.white),
                         ),
                         child: Padding(
                         padding: const EdgeInsets.only(left: 0),
                         child: Container(
                           child: Center(child:
-                          _userSetOrder[index] != null ? Image.asset(_userSetOrder[index]?.img ?? "", height: 60, width: 60,) : Text("$index", textAlign: TextAlign.center,),),
-                          height: 70,
-                          width: 70,
+                          _userSetOrder[index] != null ? Image.asset(_userSetOrder[index]?.img ?? "", height: width / tiles.length, width: width / tiles.length,) : Text("$index", textAlign: TextAlign.center,),),
+                          height: width / tiles.length,
+                          width: width / (tiles.length * 1.7) ,
                         )
 
                           // p,),
@@ -215,12 +215,12 @@ class _TileDesignItemsState extends State<TileDesignItems> {
           // const SizedBox(height: 50),
           Expanded(
             child: GridView.count(
-              crossAxisCount: 2,
-              padding: const EdgeInsets.all(1),
+              crossAxisCount: ((tiles.length)/2).round(),
+              padding: const EdgeInsets.all(2),
               children:
                 tiles.map((tile) =>
-                TileView(tile, () {
-                })).toList()
+                TileView(tile,() {
+                }, 2 * width / tiles.length,  width / tiles.length)).toList()
             ),
           ),
         ],
@@ -232,13 +232,18 @@ class _TileDesignItemsState extends State<TileDesignItems> {
     TileItem("Sort your laundry by material", "assets/ironing/laundry.png"),//, false),
     TileItem("Set up your ironing board.", "assets/ironing/ironsetup.png"),//, false),
     TileItem("Turn your iron onto the correct setting", "assets/ironing/steam.png"),//, false),
-    TileItem("Iron The clothes gently", "assets/ironing/ironing.png")//, false),
+    TileItem("Iron The clothes gently", "assets/ironing/ironing.png"),
+    // TileItem("Iron The clothes gently", "assets/ironing/ironing.png"),
+    // TileItem("Iron The clothes gently", "assets/ironing/ironing.png")
+    //, false),
   ];
 
   Map<int,TileItem> tileOrder = {
     1: TileItem("Sort your laundry by material", "assets/ironing/laundry.png"),//, false),
     2: TileItem("Set up your ironing board.", "assets/ironing/ironsetup.png"),//, false),
     3: TileItem("Turn your iron onto the correct setting", "assets/ironing/steam.png"),//, false),
-    4: TileItem("Iron The clothes gently", "assets/ironing/ironing.png")//, false),
+    4: TileItem("Iron The clothes gently", "assets/ironing/ironing.png"),
+    // 5: TileItem("Iron The clothes gently", "assets/ironing/ironing.png"),
+    // 6: TileItem("Iron The clothes gently", "assets/ironing/ironing.png")//, false),
   };
 }
