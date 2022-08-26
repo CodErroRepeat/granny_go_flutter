@@ -83,5 +83,7 @@ flutter:
     - assets/Images/
     - assets/jsonData/
     - assets/ironing/
+    - assets/brushing/
+    - -assets/breadtoast/
 #    - assets/about/games
 

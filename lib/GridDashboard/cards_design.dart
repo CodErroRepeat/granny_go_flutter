@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:granny_go/games/chess/chessGamePage.dart';
 import 'package:granny_go/games/chooseGame.dart';
@@ -8,7 +6,6 @@ import 'package:granny_go/games/match/MatchGamePage.dart';
 import 'package:granny_go/games/tictactoe/game_page.dart';
 import 'package:granny_go/Recipe/explore.dart';
 import 'package:granny_go/games/games_card_design.dart';
-
 import 'package:granny_go/music/screens/main.widget.dart';
 import 'package:granny_go/tips/tipsmain.dart';
 class MakeDashboardItems extends StatefulWidget {
@@ -230,7 +227,7 @@ class ChoresEngine {
         image: "assets/ironing/shirts.png"
     ),
     DailyChore(name: "Brushing Teeth", tiles: [
-      TileItem("Pick up brush", ""),
+      TileItem("Pick up brush", ""assets/"),
       TileItem("Pick up toothpaste", ""),
       TileItem("Apply toothpaste on brush", ""),
       TileItem("Clean teeth with brush", ""),
