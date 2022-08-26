@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:granny_go/games/dailychores/tiledesign.dart';
 import 'package:flutter/services.dart';
 import 'package:granny_go/games/match/MatchGamePage.dart';
 import 'package:granny_go/games/tictactoe/game_page.dart';
@@ -110,7 +111,9 @@ class _MakeGameDashboardItemsState extends State<MakeGameDashboardItems> {
                       context, MaterialPageRoute(builder: (context) => GamePage()));
                   //game 1
                 }),
-                DashboardView(DashboardItem("SPELL BEE", "assets/about/spelling-bee.png"), () {
+                DashboardView(DashboardItem("DAILY CHORES", "games_img/spelling-bee.png"), () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => TileDesignItems()));
                  //GAME2
                 }),
                 DashboardView(DashboardItem("CHESS", "assets/about/chess.png"), () {
