@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:granny_go/games/chess/chessGamePage.dart';
 import 'package:granny_go/games/chooseGame.dart';
+import 'package:granny_go/games/dailychores/tiledesign.dart';
 import 'package:granny_go/games/match/MatchGamePage.dart';
 import 'package:granny_go/games/tictactoe/game_page.dart';
 import 'package:granny_go/Recipe/explore.dart';
@@ -161,6 +162,7 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
     );
   }
   List<DashboardItem> dashboardItems = [
+    DashboardItem("Daily Chores", "assets/about/tic-tac-toe.png"),
     DashboardItem("TICTACTOE", "assets/about/tic-tac-toe.png"),
     DashboardItem("CHESS", "assets/about/chess.png"),
     DashboardItem("PUZZLE", "assets/about/puzzle.png"),
@@ -172,9 +174,10 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
   ];
 
   void moveToGameFrom(int index, BuildContext context) {
-    if (index == 0) moveToTicTacToe(context);
-    else  if (index == 1) moveToChess(context);
-    else if (index == 2) moveToPuzzle(context);
+    if (index == 0) moveToDailyChores(context);
+    else if (index == 1) moveToTicTacToe(context);
+    else if (index == 2) moveToChess(context);
+    else if (index == 3) moveToPuzzle(context);
   }
 
   void moveToPage(int index, BuildContext context) {
@@ -182,6 +185,10 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
     else  if (index == 1) moveToTips(context);
   }
 
+void moveToDailyChores(BuildContext context) {
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => TileDesignItems()));
+}
   void moveToRecipes(BuildContext context) {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => Explore()));
