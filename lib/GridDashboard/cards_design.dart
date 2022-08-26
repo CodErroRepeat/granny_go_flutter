@@ -212,8 +212,5 @@ void moveToDailyChores(BuildContext context) {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => MyHomePage()));
   }
-
-
-
 }
 
