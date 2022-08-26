@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:granny_go/games/tictactoe/game_page.dart';
 import 'package:granny_go/Recipe/explore.dart';
 import 'package:granny_go/games/games_card_design.dart';
+
+import 'package:granny_go/music/screens/main.widget.dart';
 import 'package:granny_go/tips/tipsmain.dart';
 class MakeDashboardItems extends StatefulWidget {
   const MakeDashboardItems({Key? key}) : super(key: key);
@@ -117,18 +119,19 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
               crossAxisCount: 2,
               padding: const EdgeInsets.all(2),
               children: [
-                DashboardView(DashboardItem("Games", "games.png"), () {
+                DashboardView(DashboardItem("Games", "assets/about/games.png"), () {
                   Navigator.push(
                     context, MaterialPageRoute(builder: (context) => MakeGameDashboardItems()));
                 }),
-                DashboardView(DashboardItem("Music", "music.png"), () {
+                DashboardView(DashboardItem("Music", "assets/about/music.png"), () {
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => MusicWidget()));
                   //Music page
                 }),
-                DashboardView(DashboardItem("RECIPES", "recipes.png"), () {
+                DashboardView(DashboardItem("Recipes", "assets/about/recipes.png"), () {
                   Navigator.push(
                       context, MaterialPageRoute(builder: (context) => Explore()));
                 }),
-                DashboardView(DashboardItem("TIPS", "tips.png"), () {
+                DashboardView(DashboardItem("Tips", "assets/about/tips.png"), () {
                   Navigator.push(
                       context, MaterialPageRoute(builder: (context) => MyHomePage()));
                 })
