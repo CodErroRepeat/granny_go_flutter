@@ -14,27 +14,27 @@ class Detail extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.teal[50],
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-
-        elevation: 0,
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-          ),
-        ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 16),
-            child: Icon(
-              Icons.favorite_border,
-              color: Colors.black,
-            ),
-          ),
-        ],
+        // backgroundColor: Colors.transparent,
+title: Text(recipe.title),
+        // elevation: 0,
+        // leading: GestureDetector(
+        //   onTap: () {
+        //     Navigator.pop(context);
+        //   },
+        //   child: Icon(
+        //     Icons.arrow_back_ios,
+        //     color: Colors.black,
+        //   ),
+        // ),
+        // actions: [
+        //   Padding(
+        //     padding: EdgeInsets.only(right: 16),
+        //     child: Icon(
+        //       Icons.favorite_border,
+        //       color: Colors.black,
+        //     ),
+        //   ),
+        // ],
       ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -42,13 +42,16 @@ class Detail extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
 
+            SizedBox(
+              height: 30,
+            ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   
-                  buildTextTitleVariation1(recipe.title),
+                  // buildTextTitleVariation1(recipe.title),
 
                   buildTextSubTitleVariation1(recipe.description),
 
@@ -95,16 +98,17 @@ class Detail extends StatelessWidget {
                   ),
 
                   Positioned(
-                    right: -80,
+                    right: -60,
+                    top: 60,
                     child: Hero(
                       tag: recipe.image,
                       child: Container(
-                        height: 310,
-                        width: 310,
+                        height: 250,
+                        width: 250,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage(recipe.image),
-                            fit: BoxFit.fitHeight,
+                            fit: BoxFit.scaleDown,
                           ),
                         ),
                       ),
@@ -131,7 +135,9 @@ class Detail extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {}, 
+        onPressed: () {
+
+        },
         backgroundColor: kPrimaryColor,
         icon: Icon(
           Icons.play_circle_fill,

@@ -78,6 +78,9 @@ flutter:
     - assets/audio/
     - assets/icons/
     - assets/animations/
+    - assets/about/
+    - assets/Images/
+    - assets/jsonData/
     - assets/ironing/
-
+#    - assets/about/games
 

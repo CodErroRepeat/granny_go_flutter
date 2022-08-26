@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:granny_go/games/match/MatchGamePage.dart';
 import 'package:granny_go/games/tictactoe/game_page.dart';
 import 'package:granny_go/main.dart';
+import 'package:granny_go/games/chess/chessGamePage.dart';
 
 class MakeGameDashboardItems extends StatefulWidget {
   const MakeGameDashboardItems({Key? key}) : super(key: key);
@@ -89,10 +90,10 @@ class _MakeGameDashboardItemsState extends State<MakeGameDashboardItems> {
         // the App.build method, and use it to set our appbar title.
         title: Text(" GAMES CORNER"),
       ),
-      backgroundColor: Color.fromARGB(255, 170, 193, 232),
+      backgroundColor: Colors.white, //Color.fromARGB(255, 170, 193, 232),
       body: Column(
         children: [
-          const SizedBox(height: 100),
+          const SizedBox(height: 40),
           Padding(
             padding: const EdgeInsets.only(left: 16, right: 16),
             child: Row(
@@ -117,6 +118,8 @@ class _MakeGameDashboardItemsState extends State<MakeGameDashboardItems> {
                 }),
                 DashboardView(DashboardItem("CHESS", "assets/about/chess.png"), () {
                  //GAME3
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => chessGamePage()));
                 }),
                 DashboardView(DashboardItem("SUDOKU", "assets/about/pastime.png"), () {
                   //GAME 1
@@ -124,13 +127,10 @@ class _MakeGameDashboardItemsState extends State<MakeGameDashboardItems> {
                 DashboardView(DashboardItem("FLIPCARD", "assets/about/memory.png"), () {
                   //GAME 1
                 }),
-                DashboardView(DashboardItem("CONNECT", "games_img/puzzle.png"), () {
+                DashboardView(DashboardItem("PUZZLE", "assets/about/puzzle.png"), () {
                   Navigator.push(
                       context, MaterialPageRoute(builder: (context) => MatchGamePage()));
                 }),
-                DashboardView(DashboardItem("PUZZLE", "assets/about/puzzle.png"), () {
-                  //GAME 1
-                })
               ],
             ),
           ),

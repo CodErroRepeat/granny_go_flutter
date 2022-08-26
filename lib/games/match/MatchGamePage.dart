@@ -83,30 +83,30 @@ class _MatchGamePageState extends State<MatchGamePage> {
                       children: items2.map((item) {
                         return DragTarget<ItemModel>(
                           onAccept: (receivedItem) {
-                            if (item.value == receivedItem.value) {
-                              setState(() {
-                                items.remove(receivedItem);
-                                items2.remove(item);
-                                score += 10;
-                                item.accepting = false;
-                              });
-                            } else {
-                              setState(() {
-                                score -= 5;
-                                item.accepting = false;
-                              });
-                            }
-                          },
-                          onLeave: (receivedItem) {
-                            setState(() {
-                              item.accepting = false;
-                            });
-                          },
-                          onWillAccept: (receivedItem) {
-                            setState(() {
-                              item.accepting = true;
-                            });
-                            return true;
+                          //   if (item.value == receivedItem.value) {
+                          //     setState(() {
+                          //       items.remove(receivedItem);
+                          //       items2.remove(item);
+                          //       score += 10;
+                          //       item.accepting = false;
+                          //     });
+                          //   } else {
+                          //     setState(() {
+                          //       score -= 5;
+                          //       item.accepting = false;
+                          //     });
+                          //   }
+                          // },
+                          // onLeave: (receivedItem) {
+                          //   setState(() {
+                          //     item.accepting = false;
+                          //   });
+                          // },
+                          // onWillAccept: (receivedItem) {
+                          //   setState(() {
+                          //     item.accepting = true;
+                          //   });
+                          //   return true;
                           },
                           builder: (context, acceptedItems, rejectedItem) =>
                               Container(
