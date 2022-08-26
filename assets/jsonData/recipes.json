@@ -2,7 +2,7 @@
   "recipes": [
     {
       "title": "Whole Wheat Bread Sandwich",
-      "image": "Images/sandwich.jpg",
+      "image": "assets/about/sandwich.jpg",
       "description": "The Perfect Way to Start Your Day",
       "calories": 250,
       "carbon": 35,
@@ -28,7 +28,7 @@
     },
     {
       "title": "Bengal Gram Salad",
-      "image": "Images/salad.jpg",
+      "image": "assets/about/salad.jpg",
       "description": "The Best Salad Ever",
       "calories": 33,
       "carbon": 5,
@@ -53,7 +53,7 @@
     },
     {
       "title": "Almond Kheer",
-      "image": "Images/kheer.jpg",
+      "image": "assets/about/kheer.jpg",
       "description": "Let's Boost Your Day",
       "calories": 78,
       "carbon": 17,
@@ -75,7 +75,7 @@
     },
         {
           "title": "Carrot Juice",
-          "image": "Images/juice.jpg",
+          "image": "assets/about/juice.jpg",
           "description": "The Healthy Drink",
           "calories": 38,
           "carbon": 17,

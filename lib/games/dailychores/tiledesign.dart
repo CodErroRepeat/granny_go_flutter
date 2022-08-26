@@ -9,6 +9,14 @@ class TileDesignItems extends StatefulWidget {
   _TileDesignItemsState createState() => _TileDesignItemsState();
 }
 
+class DailyChore {
+  String name;
+  List<TileItem> tiles;
+  String image;
+
+  DailyChore({ required this.name, required this.tiles, required this.image});
+}
+
 class TileItem {
   // String id;
   String title;
@@ -101,7 +109,7 @@ Card TileView(TileItem item, VoidCallback action) {
                 textAlign: TextAlign.center,
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(width: 60),
           ],
         ),
       ),
@@ -143,13 +151,12 @@ class _TileDesignItemsState extends State<TileDesignItems> {
           ),
           ),
     Padding(
-    padding: const EdgeInsets.only(left: 5, right: 5),
+    padding: const EdgeInsets.only(left: 20, right: 20, top: 50, bottom: 50),
     child:
-          Column(
+          Row(
               children: [4,3,2,1].map((index) {
                 return DragTarget<TileItem>(
                   onAccept: (receivedItem) {
-
                     if (_refListItem.contains(receivedItem)) {
                       // receivedItem.accepting = false;
                     } else {
@@ -194,9 +201,9 @@ class _TileDesignItemsState extends State<TileDesignItems> {
                         padding: const EdgeInsets.only(left: 0),
                         child: Container(
                           child: Center(child:
-                          _userSetOrder[index] != null ? Image.asset(_userSetOrder[index]?.img ?? "", height: 40, width: 40,) : Text("$index", textAlign: TextAlign.center,),),
-                          height: 50,
-                          width: 50,
+                          _userSetOrder[index] != null ? Image.asset(_userSetOrder[index]?.img ?? "", height: 60, width: 60,) : Text("$index", textAlign: TextAlign.center,),),
+                          height: 70,
+                          width: 70,
                         )
 
                           // p,),
