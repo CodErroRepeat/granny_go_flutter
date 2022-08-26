@@ -229,6 +229,36 @@ class ChoresEngine {
           TileItem("Iron The clothes gently", "assets/ironing/ironing.png"),],
         image: "assets/ironing/shirts.png"
     ),
+    DailyChore(name: "Brushing Teeth", tiles: [
+      TileItem("Pick up brush", ""),
+      TileItem("Pick up toothpaste", ""),
+      TileItem("Apply toothpaste on brush", ""),
+      TileItem("Clean teeth with brush", ""),
+    ], image: ""),
+    DailyChore(name: "Toasting Bread", tiles: [
+      TileItem("Get some bread", ""),
+      TileItem("Configure the toaster", ""),
+      TileItem("Place bread on toaster", ""),
+      TileItem("Turn on Toaster", ""),
+    ], image: ""),
+    DailyChore(name: "Washing Plates", tiles: [
+      TileItem("Take dirty plates", ""),
+      TileItem("Take liquid soap", ""),
+      TileItem("Apply water", ""),
+      TileItem("Clean plates", ""),
+    ], image: ""),
+    DailyChore(name: "Washing Clothes", tiles: [
+      TileItem("Collect dirty clothes", ""),
+      TileItem("Pick up detergent", ""),
+      TileItem("Take brush", ""),
+      TileItem("Clean clothes with brush", ""),
+    ], image: ""),
+    DailyChore(name: "Shopping", tiles: [
+      TileItem("Book a taxi", ""),
+      TileItem("Take money", ""),
+      TileItem("Make note of things to buy", ""),
+      TileItem("Head to the market", ""),
+    ], image: "")
   ];
 
   static DailyChore firstChore() {
