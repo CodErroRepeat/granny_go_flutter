@@ -148,10 +148,10 @@ class _TileDesignItemsState extends State<TileDesignItems> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Image.asset("assets/ironing/shirts.png",height: 100),
+                Image.asset(chore.image, height: 100),
               SizedBox(height: 10),
               Text(
-                "IRONING CLOTHES",
+                chore.name,
                 style:
                 TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
@@ -242,12 +242,17 @@ class _TileDesignItemsState extends State<TileDesignItems> {
         desc: "Another Milestone",
       image: Image.asset("assets/about/winner.png", height: 50, width: 50,),
       buttons: [
-        DialogButton(child: Text("Play Again", style: TextStyle(color: Colors.white, fontSize: 20),),
-            onPressed: () => dismissDialogAndReset(context),
-        color: Colors.blue,),
-        DialogButton(child: Text("Next", style: TextStyle(color: Colors.white, fontSize: 20),),
-      onPressed: () => moveToNextChore(context),
-      color: Colors.green,)
+            DialogButton(child: Text("Play Again",
+              style: TextStyle(color: Colors.white, fontSize: 20),),
+              onPressed: () => dismissDialogAndReset(context),
+              color: Colors.blue,),
+              (ChoresEngine.isLastElement) ? DialogButton(child: Text(
+    "Go Home", style: TextStyle(color: Colors.white, fontSize: 20),),
+    onPressed: () => moveToNextChore(context),
+    color: Colors.green,) : DialogButton(child: Text(
+              "Next", style: TextStyle(color: Colors.white, fontSize: 20),),
+              onPressed: () => moveToNextChore(context),
+              color: Colors.green,)
       ],
 
     ).show();
@@ -259,9 +264,13 @@ class _TileDesignItemsState extends State<TileDesignItems> {
   }
   
   void moveToNextChore(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (_) => TileDesignItems(chore: ChoresEngine.getNextChore())));
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => TileDesignItems(chore: ChoresEngine.getNextChore())));
   }
-
+  
+  void moveBackHome(BuildContext context) {
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => MakeDashboardItems()));
+  }
+ 
   void resetPage() {
     setState(() {
       _userSetOrder.clear();
