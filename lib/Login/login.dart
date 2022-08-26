@@ -108,6 +108,7 @@ Widget build(BuildContext context) {
     body:
 
     Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
           height: 150.0,

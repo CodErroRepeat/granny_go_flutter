@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:granny_go/games/chooseGame.dart';
 import 'package:granny_go/home_quiz/quiz_screen.dart';
 import 'package:granny_go/tips/tipsdatamodel.dart';
 import 'package:granny_go/tips/tipsdetails.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: WelcomeView(),
+      home: MakeDashboardItems(),
     );
   }
 }

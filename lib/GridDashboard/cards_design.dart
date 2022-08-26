@@ -1,4 +1,9 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:granny_go/games/chess/chessGamePage.dart';
+import 'package:granny_go/games/chooseGame.dart';
+import 'package:granny_go/games/match/MatchGamePage.dart';
 import 'package:granny_go/games/tictactoe/game_page.dart';
 import 'package:granny_go/Recipe/explore.dart';
 import 'package:granny_go/games/games_card_design.dart';
@@ -27,30 +32,31 @@ Card DashboardView(DashboardItem item, VoidCallback action) {
     elevation: 2,
     margin: const EdgeInsets.all(8),
     child: Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
-        gradient: const LinearGradient(
-          begin: FractionalOffset(0.0, 0.0),
-          end: FractionalOffset(3.0, -1.0),
-          colors: [
-            Color(0xFF84fcde),
-            Color(0xFFffffff),
-          ],
-        ),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.white,
-            blurRadius: 3,
-            offset: Offset(2, 2),
-          )
-        ],
-      ),
+      width: 300,
+      // decoration: BoxDecoration(
+      //   borderRadius: BorderRadius.circular(5),
+      //   gradient: const LinearGradient(
+      //     begin: FractionalOffset(0.0, 0.0),
+      //     end: FractionalOffset(3.0, -1.0),
+      //     colors: [
+      //       Color(0xFF84fcde),
+      //       Color(0xFFffffff),
+      //     ],
+      //   ),
+      //   boxShadow: const [
+      //     BoxShadow(
+      //       color: Colors.white,
+      //       blurRadius: 3,
+      //       offset: Offset(2, 2),
+      //     )
+      //   ],
+      // ),
       child: InkWell(
         onTap: () {
           action();
         },
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           verticalDirection: VerticalDirection.down,
           children: [
@@ -85,62 +91,122 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text("Home")),
       backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          const SizedBox(height: 100),
-          Padding(
-            padding: const EdgeInsets.only(left: 16, right: 16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const <Widget>[
-                    Text(
-                      "GRANNY GO",
-                      style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(height: 4),
-                    Text(
-                      "Dashboard:",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 50),
-          Expanded(
-            child: GridView.count(
-              crossAxisCount: 2,
-              padding: const EdgeInsets.all(2),
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          physics: const BouncingScrollPhysics(),
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                DashboardView(DashboardItem("Games", "assets/about/games.png"), () {
-                  Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => MakeGameDashboardItems()));
-                }),
-                DashboardView(DashboardItem("Music", "assets/about/music.png"), () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => MusicWidget()));
-                  //Music page
-                }),
-                DashboardView(DashboardItem("Recipes", "assets/about/recipes.png"), () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => Explore()));
-                }),
-                DashboardView(DashboardItem("Tips", "assets/about/tips.png"), () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => MyHomePage()));
-                })
+
               ],
             ),
-          ),
-        ],
+            const SizedBox(
+              height: 22,
+            ),
+            SizedBox(
+              height: 349,
+              child: ListView.builder(
+                itemCount: dashboardItems.length,
+                scrollDirection: Axis.horizontal,
+                physics: const BouncingScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return
+                   MyHorizontalList(
+                    startColor: 0xFF9288E4,
+                    endColor: 0xFF534EA7,
+                    courseHeadline: dashboardItems[index].title,
+                    courseTitle: "",
+                    courseImage: dashboardItems[index].img,
+                     onTap: () => moveToGameFrom(index, context)
+                  );
+                },
+              ),
+              //   itemCount: 4,
+              //   scrollDirection: Axis.horizontal,
+              //   physics: const BouncingScrollPhysics(),
+              //   itemBuilder: (context, index) {
+              //     return const MyHorizontalList(
+              //       startColor: 0xFF9288E4,
+              //       endColor: 0xFF534EA7,
+              //       courseHeadline: 'Games',
+              //       courseTitle: 'Games',
+              //       courseImage: 'assets/about/games.png',
+              //     );
+              //   },
+              // ),
+            ),
+            const SizedBox(
+              height: 34,
+            ),
+
+            ListView.builder(
+              itemCount: newItems.length,
+              shrinkWrap: true,
+              itemBuilder: ((context, index) {
+                return MyVerticalList(
+                  image: newItems[index].img,
+                  title: newItems[index].title,
+                  onTap: () => moveToPage(index, context),
+                );
+              }),
+            ),
+          ],
+        ),
       ),
     );
   }
+  List<DashboardItem> dashboardItems = [
+    DashboardItem("TICTACTOE", "assets/about/tic-tac-toe.png"),
+    DashboardItem("CHESS", "assets/about/chess.png"),
+    DashboardItem("PUZZLE", "assets/about/puzzle.png"),
+  ];
+
+  List<DashboardItem> newItems = [
+    DashboardItem("Recipes", "assets/about/recipes.png"),
+    DashboardItem("Tips", "assets/about/tips.png")
+  ];
+
+  void moveToGameFrom(int index, BuildContext context) {
+    if (index == 0) moveToTicTacToe(context);
+    else  if (index == 1) moveToChess(context);
+    else if (index == 2) moveToPuzzle(context);
+  }
+
+  void moveToPage(int index, BuildContext context) {
+    if (index == 0) moveToRecipes(context);
+    else  if (index == 1) moveToTips(context);
+  }
+
+  void moveToRecipes(BuildContext context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => Explore()));
+  }
+  void moveToTicTacToe(BuildContext context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => GamePage()));
+
+  }
+  void moveToPuzzle(BuildContext context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => MatchGamePage()));
+
+  }
+  void moveToChess(BuildContext context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => chessGamePage()));
+
+  }
+  void moveToTips(BuildContext context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => MyHomePage()));
+  }
+
+
+
 }
+
