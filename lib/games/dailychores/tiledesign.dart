@@ -136,7 +136,7 @@ class _TileDesignItemsState extends State<TileDesignItems> {
       Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 5, right: 5),
+            padding: const EdgeInsets.only(left: 5, right: 5, top: 20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -151,7 +151,7 @@ class _TileDesignItemsState extends State<TileDesignItems> {
           ),
           ),
     Padding(
-    padding: const EdgeInsets.only(left: 20, right: 20, top: 50, bottom: 50),
+    padding: const EdgeInsets.only(left: 20, right: 20, top: 25, bottom: 25),
     child:
           Row(
               children: List.generate(tiles.length, (index) => index + 1).map((index) {
