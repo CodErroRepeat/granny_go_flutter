@@ -162,7 +162,7 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
     );
   }
   List<DashboardItem> dashboardItems = [
-    DashboardItem("Daily Chores", "assets/about/tic-tac-toe.png"),
+    DashboardItem("Daily Chores", "assets/about/cleaning.png"),
     DashboardItem("TICTACTOE", "assets/about/tic-tac-toe.png"),
     DashboardItem("CHESS", "assets/about/chess.png"),
     DashboardItem("PUZZLE", "assets/about/puzzle.png"),
@@ -236,10 +236,13 @@ class ChoresEngine {
   static DailyChore firstChore() {
     return chores[0];
   }
+
   static DailyChore getNextChore() {
     currentIndex += 1;
     return chores[currentIndex];
   }
+
+  static bool get isLastElement => currentIndex == (chores.length - 1);
 
   static void resetCurrentIndex() {
     currentIndex = 0;

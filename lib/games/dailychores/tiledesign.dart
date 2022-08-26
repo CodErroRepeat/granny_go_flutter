@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
+import 'package:granny_go/GridDashboard/cards_design.dart';
 import 'package:quiver/collection.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class TileDesignItems extends StatefulWidget {
 
@@ -176,11 +178,10 @@ class _TileDesignItemsState extends State<TileDesignItems> {
 
                     if (_refListItem.length == chore.tiles.length) {
                       if (mapEquals(_userSetOrder, tileOrder)) {
-                        gameCompleted = true;
+                        showAlert(context);
                       }
                       else {
-                        _userSetOrder.clear();
-                        _refListItem.clear();
+                        resetPage();
                       }
                     }
                   },
@@ -233,6 +234,41 @@ class _TileDesignItemsState extends State<TileDesignItems> {
       ),
     );
   }
+  
+  void showAlert(BuildContext context) {
+    Alert(
+      context: context,
+      title: "Go Granny Go!!!",
+        desc: "Another Milestone",
+      image: Image.asset("assets/about/winner.png", height: 50, width: 50,),
+      buttons: [
+        DialogButton(child: Text("Play Again", style: TextStyle(color: Colors.white, fontSize: 20),),
+            onPressed: () => dismissDialogAndReset(context),
+        color: Colors.blue,),
+        DialogButton(child: Text("Next", style: TextStyle(color: Colors.white, fontSize: 20),),
+      onPressed: () => moveToNextChore(context),
+      color: Colors.green,)
+      ],
+
+    ).show();
+  }
+
+  void dismissDialogAndReset(BuildContext context) {
+    resetPage();
+    Navigator.pop(context);
+  }
+  
+  void moveToNextChore(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (_) => TileDesignItems(chore: ChoresEngine.getNextChore())));
+  }
+
+  void resetPage() {
+    setState(() {
+      _userSetOrder.clear();
+      _refListItem.clear();
+    });
+  }
+
 
   Map<int, TileItem> get tileOrder => {
     1: chore.tiles[0],
