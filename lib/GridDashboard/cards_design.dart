@@ -219,8 +219,6 @@ void moveToDailyChores(BuildContext context) {
   }
 }
 
-
-
 class ChoresEngine {
   static int currentIndex = 0;
   static List<DailyChore> chores = [

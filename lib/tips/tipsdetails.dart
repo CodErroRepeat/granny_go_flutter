@@ -8,10 +8,10 @@ class TipsDetail extends StatelessWidget {
       appBar: AppBar(title: Text(tipsDataModel.name),),
       body: Column(
         children: <Widget>[
-          Text(tipsDataModel.name+"-INTRO\n",style:TextStyle(fontSize:15,fontWeight:FontWeight.bold,decoration: TextDecoration.underline),),
-          Text("Description\n",style:TextStyle(fontSize: 15,fontWeight:FontWeight.bold,decoration: TextDecoration.underline),),
+          Text(tipsDataModel.name+"-INTRO\n",style:TextStyle(fontSize:20,fontWeight:FontWeight.bold,decoration: TextDecoration.underline),),
+          Text("Description\n",style:TextStyle(fontSize: 18,fontWeight:FontWeight.bold,decoration: TextDecoration.underline),),
           Container(
-            child: Text(tipsDataModel.desc)
+            child: Text(tipsDataModel.desc, style:TextStyle(fontSize: 16))
           )
         ],
       ),
