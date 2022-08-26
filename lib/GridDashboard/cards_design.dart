@@ -187,7 +187,12 @@ class _MakeDashboardItemsState extends State<MakeDashboardItems> {
 
 void moveToDailyChores(BuildContext context) {
   Navigator.push(
-      context, MaterialPageRoute(builder: (context) => TileDesignItems()));
+      context, MaterialPageRoute(builder: (context) => TileDesignItems(
+    chore:
+      ChoresEngine.firstChore()
+  )
+  )
+  );
 }
   void moveToRecipes(BuildContext context) {
     Navigator.push(
@@ -214,3 +219,29 @@ void moveToDailyChores(BuildContext context) {
   }
 }
 
+
+
+class ChoresEngine {
+  static int currentIndex = 0;
+  static List<DailyChore> chores = [
+    DailyChore(name: "Ironing Clothes",
+        tiles: [TileItem("Sort your laundry by material", "assets/ironing/laundry.png"),//, false),
+          TileItem("Set up your ironing board.", "assets/ironing/ironsetup.png"),//, false),
+          TileItem("Turn your iron onto the correct setting", "assets/ironing/steam.png"),//, false),
+          TileItem("Iron The clothes gently", "assets/ironing/ironing.png"),],
+        image: "assets/ironing/shirts.png"
+    ),
+  ];
+
+  static DailyChore firstChore() {
+    return chores[0];
+  }
+  static DailyChore getNextChore() {
+    currentIndex += 1;
+    return chores[currentIndex];
+  }
+
+  static void resetCurrentIndex() {
+    currentIndex = 0;
+  }
+}

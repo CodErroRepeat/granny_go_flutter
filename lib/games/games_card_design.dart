@@ -112,8 +112,8 @@ class _MakeGameDashboardItemsState extends State<MakeGameDashboardItems> {
                   //game 1
                 }),
                 DashboardView(DashboardItem("DAILY CHORES", "games_img/spelling-bee.png"), () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => TileDesignItems()));
+                  // Navigator.push(
+                  //     context, MaterialPageRoute(builder: (context) => TileDesignItems()));
                  //GAME2
                 }),
                 DashboardView(DashboardItem("CHESS", "assets/about/chess.png"), () {
