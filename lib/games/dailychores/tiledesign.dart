@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-
+import 'package:rflutter_alert/rflutter_alert.dart';
 class TileDesignItems extends StatefulWidget {
   const TileDesignItems({Key? key}) : super(key: key);
 
@@ -151,7 +151,7 @@ class _TileDesignItemsState extends State<TileDesignItems> {
                   onAccept: (receivedItem) {
 
                     if (_refListItem.contains(receivedItem)) {
-                      // receivedItem.accepting = false;
+                     resetpage();
                     } else {
                       setState(() {
                         // receivedItem.accepting = false;
@@ -163,11 +163,37 @@ class _TileDesignItemsState extends State<TileDesignItems> {
 
                     if (_refListItem.length == tiles.length) {
                       if (mapEquals(_userSetOrder, tileOrder)) {
-                        gameCompleted = true;
+                        Alert(
+                          context:context,
+                          title: "GO GRANNY GO",
+                          desc: "Another Milestone",
+                          image: Image.asset("winner.png",height:50,width:50),
+                          buttons: [
+                            DialogButton(
+                              child: Text(
+                                "PLAY AGAIN",
+                                style: TextStyle(color: Colors.white, fontSize: 20),
+                              ),
+                              onPressed: () => Navigator.pop(context),
+                              color: Color.fromRGBO(0, 179, 134, 1.0),
+                            ),
+                            DialogButton(
+                              child: Text(
+                                "NEXT",
+                                style: TextStyle(color: Colors.white, fontSize: 20),
+                              ),
+                              onPressed: () =>
+                                  Navigator.pop(context),
+                              gradient: LinearGradient(colors: [
+                                Color.fromRGBO(116, 116, 191, 1.0),
+                                Color.fromRGBO(52, 138, 199, 1.0)
+                              ]),
+                            )
+                          ],
+                        ).show();
                       }
                       else {
-                        _userSetOrder.clear();
-                        _refListItem.clear();
+
                       }
                     }
                   },
@@ -234,4 +260,9 @@ class _TileDesignItemsState extends State<TileDesignItems> {
     3: TileItem("Turn your iron onto the correct setting", "assets/ironing/steam.png"),//, false),
     4: TileItem("Iron The clothes gently", "assets/ironing/ironing.png")//, false),
   };
+  void resetpage()
+  {
+    _userSetOrder.clear();
+    _refListItem.clear();
+  }
 }
